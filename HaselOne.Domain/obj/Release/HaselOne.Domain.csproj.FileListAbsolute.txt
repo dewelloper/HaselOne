@@ -1,0 +1,11 @@
+C:\Hasel\HaselOne\ONEHASEL\HaselOne.Domain\bin\Release\HaselOne.Domain.dll
+C:\Hasel\HaselOne\ONEHASEL\HaselOne.Domain\bin\Release\HaselOne.Domain.pdb
+C:\Hasel\HaselOne\ONEHASEL\HaselOne.Domain\bin\Release\DAL.dll
+C:\Hasel\HaselOne\ONEHASEL\HaselOne.Domain\bin\Release\EntityFramework.dll
+C:\Hasel\HaselOne\ONEHASEL\HaselOne.Domain\bin\Release\EntityFramework.SqlServer.dll
+C:\Hasel\HaselOne\ONEHASEL\HaselOne.Domain\bin\Release\DAL.pdb
+C:\Hasel\HaselOne\ONEHASEL\HaselOne.Domain\bin\Release\EntityFramework.xml
+C:\Hasel\HaselOne\ONEHASEL\HaselOne.Domain\bin\Release\EntityFramework.SqlServer.xml
+C:\Hasel\HaselOne\ONEHASEL\HaselOne.Domain\obj\Release\HaselOne.Domain.csprojResolveAssemblyReference.cache
+C:\Hasel\HaselOne\ONEHASEL\HaselOne.Domain\obj\Release\HaselOne.Domain.dll
+C:\Hasel\HaselOne\ONEHASEL\HaselOne.Domain\obj\Release\HaselOne.Domain.pdb

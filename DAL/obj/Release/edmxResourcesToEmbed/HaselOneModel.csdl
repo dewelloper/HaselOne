@@ -1,0 +1,1861 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HASELONEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="HASELONEEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="Cm_CustomerDelete">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="DeleteorRecovery" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Cm_CustomerMachineparksalesmanControl" ReturnType="Collection(Int32)">
+      <Parameter Name="CustomerMachineparkCategoriesId" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="SalesmanId" Mode="In" Type="Int32" />
+      <Parameter Name="ReturnScalar" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Cm_GetCustomersByUserId">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Cm_MachineParkSalesmanControlForMachinepark" ReturnType="Collection(Int32)">
+      <Parameter Name="CustomerMachineparkCategoriesId" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="ReturnScalar" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CreateLog">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="TableName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Dfs_CariDelete">
+      <Parameter Name="Cm_CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="Cm_UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAreaStats" IsComposable="true" ReturnType="Collection(HASELONEModel.GetAreaStats_Result)">
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="AreaIds" Mode="In" Type="String" />
+      <Parameter Name="SalesManIds" Mode="In" Type="String" />
+      <Parameter Name="MachineparkCategoryIds" Mode="In" Type="String" />
+      <Parameter Name="MarkIds" Mode="In" Type="String" />
+      <Parameter Name="SegmentIds" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetClassifiedMachineparkCounts" IsComposable="true" ReturnType="Collection(HASELONEModel.GetClassifiedMachineparkCounts_Result)" />
+    <FunctionImport Name="GetSalesmanListForAreaAndOperationType" ReturnType="Collection(HASELONEModel.GetSalesmanListForAreaAndOperationType_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetSalesmans" IsComposable="true" ReturnType="Collection(HASELONEModel.GetSalesmans_Result)">
+      <Parameter Name="Keyword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetSalesmanStats" IsComposable="true" ReturnType="Collection(HASELONEModel.GetSalesmanStats_Result)">
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="AreaIds" Mode="In" Type="String" />
+      <Parameter Name="SalesManIds" Mode="In" Type="String" />
+      <Parameter Name="MachineparkCategoryIds" Mode="In" Type="String" />
+      <Parameter Name="MarkIds" Mode="In" Type="String" />
+      <Parameter Name="SegmentIds" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetSegmentStats" IsComposable="true" ReturnType="Collection(HASELONEModel.GetSegmentStats_Result)">
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="AreaIds" Mode="In" Type="String" />
+      <Parameter Name="SalesManIds" Mode="In" Type="String" />
+      <Parameter Name="MachineparkCategoryIds" Mode="In" Type="String" />
+      <Parameter Name="MarkIds" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(HASELONEModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(HASELONEModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="StringSplit" IsComposable="true" ReturnType="Collection(String)">
+      <Parameter Name="StringValue" Mode="In" Type="String" />
+      <Parameter Name="Delimiter" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Cm_Customer" EntityType="HASELONEModel.Cm_Customer" />
+    <EntitySet Name="Cm_CustomerAuthenticators" EntityType="HASELONEModel.Cm_CustomerAuthenticators" />
+    <EntitySet Name="Cm_CustomerInterviews" EntityType="HASELONEModel.Cm_CustomerInterviews" />
+    <EntitySet Name="Cm_CustomerLocations" EntityType="HASELONEModel.Cm_CustomerLocations" />
+    <EntitySet Name="Cm_CustomerMachineparks" EntityType="HASELONEModel.Cm_CustomerMachineparks" />
+    <EntitySet Name="Cm_CustomerRequest" EntityType="HASELONEModel.Cm_CustomerRequest" />
+    <EntitySet Name="Cm_CustomerSalesmans" EntityType="HASELONEModel.Cm_CustomerSalesmans" />
+    <EntitySet Name="Cm_Interview" EntityType="HASELONEModel.Cm_Interview" />
+    <EntitySet Name="Cm_MachineparkCategory" EntityType="HASELONEModel.Cm_MachineparkCategory" />
+    <EntitySet Name="Cm_MachineparkMark" EntityType="HASELONEModel.Cm_MachineparkMark" />
+    <EntitySet Name="Cm_MachineparkOwnership" EntityType="HASELONEModel.Cm_MachineparkOwnership" />
+    <EntitySet Name="Cm_MachineparkRental" EntityType="HASELONEModel.Cm_MachineparkRental" />
+    <EntitySet Name="Cm_MachineparkYear" EntityType="HASELONEModel.Cm_MachineparkYear" />
+    <EntitySet Name="Gn_Area" EntityType="HASELONEModel.Gn_Area" />
+    <EntitySet Name="Gn_AreaCity" EntityType="HASELONEModel.Gn_AreaCity" />
+    <EntitySet Name="Gn_AreaCityRegions" EntityType="HASELONEModel.Gn_AreaCityRegions" />
+    <EntitySet Name="Gn_Category" EntityType="HASELONEModel.Gn_Category" />
+    <EntitySet Name="Gn_CategoryDetails" EntityType="HASELONEModel.Gn_CategoryDetails" />
+    <EntitySet Name="Gn_Combos" EntityType="HASELONEModel.Gn_Combos" />
+    <EntitySet Name="Gn_ComboTypes" EntityType="HASELONEModel.Gn_ComboTypes" />
+    <EntitySet Name="Gn_ConnectionChannel" EntityType="HASELONEModel.Gn_ConnectionChannel" />
+    <EntitySet Name="Gn_ContentManagement" EntityType="HASELONEModel.Gn_ContentManagement" />
+    <EntitySet Name="Gn_ContentTypes" EntityType="HASELONEModel.Gn_ContentTypes" />
+    <EntitySet Name="Gn_Control" EntityType="HASELONEModel.Gn_Control" />
+    <EntitySet Name="Gn_ControlAuthorities" EntityType="HASELONEModel.Gn_ControlAuthorities" />
+    <EntitySet Name="Gn_Department" EntityType="HASELONEModel.Gn_Department" />
+    <EntitySet Name="Gn_DepartmentRoles" EntityType="HASELONEModel.Gn_DepartmentRoles" />
+    <EntitySet Name="Gn_InterviewImportant" EntityType="HASELONEModel.Gn_InterviewImportant" />
+    <EntitySet Name="Gn_ModulsAndMenus" EntityType="HASELONEModel.Gn_ModulsAndMenus" />
+    <EntitySet Name="Gn_Notifications" EntityType="HASELONEModel.Gn_Notifications" />
+    <EntitySet Name="Gn_Role" EntityType="HASELONEModel.Gn_Role" />
+    <EntitySet Name="Gn_RoleRelation" EntityType="HASELONEModel.Gn_RoleRelation" />
+    <EntitySet Name="Gn_Sector" EntityType="HASELONEModel.Gn_Sector" />
+    <EntitySet Name="Gn_Segment" EntityType="HASELONEModel.Gn_Segment" />
+    <EntitySet Name="Gn_User" EntityType="HASELONEModel.Gn_User" />
+    <EntitySet Name="Gn_UserGroup" EntityType="HASELONEModel.Gn_UserGroup" />
+    <EntitySet Name="Gn_UserGroupRights" EntityType="HASELONEModel.Gn_UserGroupRights" />
+    <EntitySet Name="Gn_UserModuls" EntityType="HASELONEModel.Gn_UserModuls" />
+    <EntitySet Name="Gn_UserRights" EntityType="HASELONEModel.Gn_UserRights" />
+    <EntitySet Name="Gn_UserRoles" EntityType="HASELONEModel.Gn_UserRoles" />
+    <EntitySet Name="Log_Cm_Customer" EntityType="HASELONEModel.Log_Cm_Customer" />
+    <EntitySet Name="Log_Cm_CustomerAuthenticators" EntityType="HASELONEModel.Log_Cm_CustomerAuthenticators" />
+    <EntitySet Name="Log_Cm_CustomerInterviews" EntityType="HASELONEModel.Log_Cm_CustomerInterviews" />
+    <EntitySet Name="Log_Cm_CustomerLocations" EntityType="HASELONEModel.Log_Cm_CustomerLocations" />
+    <EntitySet Name="Log_Cm_CustomerMachineparks" EntityType="HASELONEModel.Log_Cm_CustomerMachineparks" />
+    <EntitySet Name="Log_Cm_CustomerRequest" EntityType="HASELONEModel.Log_Cm_CustomerRequest" />
+    <EntitySet Name="Log_Cm_CustomerSalesmans" EntityType="HASELONEModel.Log_Cm_CustomerSalesmans" />
+    <EntitySet Name="Log_Cm_MachineparkRental" EntityType="HASELONEModel.Log_Cm_MachineparkRental" />
+    <EntitySet Name="Ns_BranchCode" EntityType="HASELONEModel.Ns_BranchCode" />
+    <EntitySet Name="Pr_MachineModel" EntityType="HASELONEModel.Pr_MachineModel" />
+    <EntitySet Name="sysdiagrams" EntityType="HASELONEModel.sysdiagrams" />
+    <AssociationSet Name="FK_Cm_CustomerAuthenticators_Cm_Customer" Association="HASELONEModel.FK_Cm_CustomerAuthenticators_Cm_Customer">
+      <End Role="Cm_Customer" EntitySet="Cm_Customer" />
+      <End Role="Cm_CustomerAuthenticators" EntitySet="Cm_CustomerAuthenticators" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerInterviews_Cm_Customer" Association="HASELONEModel.FK_Cm_CustomerInterviews_Cm_Customer">
+      <End Role="Cm_Customer" EntitySet="Cm_Customer" />
+      <End Role="Cm_CustomerInterviews" EntitySet="Cm_CustomerInterviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerLocations_Cm_Customer" Association="HASELONEModel.FK_Cm_CustomerLocations_Cm_Customer">
+      <End Role="Cm_Customer" EntitySet="Cm_Customer" />
+      <End Role="Cm_CustomerLocations" EntitySet="Cm_CustomerLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerMachineparks_Cm_Customer" Association="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_Customer">
+      <End Role="Cm_Customer" EntitySet="Cm_Customer" />
+      <End Role="Cm_CustomerMachineparks" EntitySet="Cm_CustomerMachineparks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerRequest_Cm_Customer" Association="HASELONEModel.FK_Cm_CustomerRequest_Cm_Customer">
+      <End Role="Cm_Customer" EntitySet="Cm_Customer" />
+      <End Role="Cm_CustomerRequest" EntitySet="Cm_CustomerRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerSalesmans_Cm_Customer" Association="HASELONEModel.FK_Cm_CustomerSalesmans_Cm_Customer">
+      <End Role="Cm_Customer" EntitySet="Cm_Customer" />
+      <End Role="Cm_CustomerSalesmans" EntitySet="Cm_CustomerSalesmans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_MachineparkRental_Cm_Customer" Association="HASELONEModel.FK_Cm_MachineparkRental_Cm_Customer">
+      <End Role="Cm_Customer" EntitySet="Cm_Customer" />
+      <End Role="Cm_MachineparkRental" EntitySet="Cm_MachineparkRental" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerAuthenticators_Gn_User" Association="HASELONEModel.FK_Cm_CustomerAuthenticators_Gn_User">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_CustomerAuthenticators" EntitySet="Cm_CustomerAuthenticators" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerInterviews_Cm_CustomerAuthenticators" Association="HASELONEModel.FK_Cm_CustomerInterviews_Cm_CustomerAuthenticators">
+      <End Role="Cm_CustomerAuthenticators" EntitySet="Cm_CustomerAuthenticators" />
+      <End Role="Cm_CustomerInterviews" EntitySet="Cm_CustomerInterviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerInterviews_Cm_Interview" Association="HASELONEModel.FK_Cm_CustomerInterviews_Cm_Interview">
+      <End Role="Cm_Interview" EntitySet="Cm_Interview" />
+      <End Role="Cm_CustomerInterviews" EntitySet="Cm_CustomerInterviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerInterviews_Gn_InterviewImportant" Association="HASELONEModel.FK_Cm_CustomerInterviews_Gn_InterviewImportant">
+      <End Role="Gn_InterviewImportant" EntitySet="Gn_InterviewImportant" />
+      <End Role="Cm_CustomerInterviews" EntitySet="Cm_CustomerInterviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerInterviews_Gn_User" Association="HASELONEModel.FK_Cm_CustomerInterviews_Gn_User">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_CustomerInterviews" EntitySet="Cm_CustomerInterviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerLocations_Gn_User" Association="HASELONEModel.FK_Cm_CustomerLocations_Gn_User">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_CustomerLocations" EntitySet="Cm_CustomerLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerMachineparks_Cm_CustomerLocations" Association="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_CustomerLocations">
+      <End Role="Cm_CustomerLocations" EntitySet="Cm_CustomerLocations" />
+      <End Role="Cm_CustomerMachineparks" EntitySet="Cm_CustomerMachineparks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerMachineparks_Cm_CustomerRequest" Association="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_CustomerRequest">
+      <End Role="Cm_CustomerRequest" EntitySet="Cm_CustomerRequest" />
+      <End Role="Cm_CustomerMachineparks" EntitySet="Cm_CustomerMachineparks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerMachineparks_Cm_MachineparkCategoriy" Association="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_MachineparkCategoriy">
+      <End Role="Cm_MachineparkCategory" EntitySet="Cm_MachineparkCategory" />
+      <End Role="Cm_CustomerMachineparks" EntitySet="Cm_CustomerMachineparks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerMachineparks_Cm_MachineparkMark" Association="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_MachineparkMark">
+      <End Role="Cm_MachineparkMark" EntitySet="Cm_MachineparkMark" />
+      <End Role="Cm_CustomerMachineparks" EntitySet="Cm_CustomerMachineparks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerMachineparks_Gn_User_Creator" Association="HASELONEModel.FK_Cm_CustomerMachineparks_Gn_User_Creator">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_CustomerMachineparks" EntitySet="Cm_CustomerMachineparks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerMachineparks_Gn_User_Delete" Association="HASELONEModel.FK_Cm_CustomerMachineparks_Gn_User_Delete">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_CustomerMachineparks" EntitySet="Cm_CustomerMachineparks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerMachineparks_Gn_User_Modifier" Association="HASELONEModel.FK_Cm_CustomerMachineparks_Gn_User_Modifier">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_CustomerMachineparks" EntitySet="Cm_CustomerMachineparks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerMachineparks_Pr_MachineModel" Association="HASELONEModel.FK_Cm_CustomerMachineparks_Pr_MachineModel">
+      <End Role="Pr_MachineModel" EntitySet="Pr_MachineModel" />
+      <End Role="Cm_CustomerMachineparks" EntitySet="Cm_CustomerMachineparks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_MachineparkRental_Cm_CustomerMachineparks" Association="HASELONEModel.FK_Cm_MachineparkRental_Cm_CustomerMachineparks">
+      <End Role="Cm_CustomerMachineparks" EntitySet="Cm_CustomerMachineparks" />
+      <End Role="Cm_MachineparkRental" EntitySet="Cm_MachineparkRental" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerRequest_Cm_MachineparkCategory" Association="HASELONEModel.FK_Cm_CustomerRequest_Cm_MachineparkCategory">
+      <End Role="Cm_MachineparkCategory" EntitySet="Cm_MachineparkCategory" />
+      <End Role="Cm_CustomerRequest" EntitySet="Cm_CustomerRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerRequest_Cm_MachineparkMark" Association="HASELONEModel.FK_Cm_CustomerRequest_Cm_MachineparkMark">
+      <End Role="Cm_MachineparkMark" EntitySet="Cm_MachineparkMark" />
+      <End Role="Cm_CustomerRequest" EntitySet="Cm_CustomerRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerRequest_Gn_ConnectionChannel" Association="HASELONEModel.FK_Cm_CustomerRequest_Gn_ConnectionChannel">
+      <End Role="Gn_ConnectionChannel" EntitySet="Gn_ConnectionChannel" />
+      <End Role="Cm_CustomerRequest" EntitySet="Cm_CustomerRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerRequest_Gn_User_CreateUser" Association="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_CreateUser">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_CustomerRequest" EntitySet="Cm_CustomerRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerRequest_Gn_User_DeleteUser" Association="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_DeleteUser">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_CustomerRequest" EntitySet="Cm_CustomerRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerRequest_Gn_User_OwnerId" Association="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_OwnerId">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_CustomerRequest" EntitySet="Cm_CustomerRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerRequest_Gn_User_Salesmanid" Association="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_Salesmanid">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_CustomerRequest" EntitySet="Cm_CustomerRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerRequest_Gn_User_UpdateUser" Association="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_UpdateUser">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_CustomerRequest" EntitySet="Cm_CustomerRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerRequest_Pr_MachineModel" Association="HASELONEModel.FK_Cm_CustomerRequest_Pr_MachineModel">
+      <End Role="Pr_MachineModel" EntitySet="Pr_MachineModel" />
+      <End Role="Cm_CustomerRequest" EntitySet="Cm_CustomerRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_MachineparkRental_Cm_CustomerRequest" Association="HASELONEModel.FK_Cm_MachineparkRental_Cm_CustomerRequest">
+      <End Role="Cm_CustomerRequest" EntitySet="Cm_CustomerRequest" />
+      <End Role="Cm_MachineparkRental" EntitySet="Cm_MachineparkRental" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerSalesmans_Gn_User" Association="HASELONEModel.FK_Cm_CustomerSalesmans_Gn_User">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_CustomerSalesmans" EntitySet="Cm_CustomerSalesmans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_CustomerSalesmans_Gn_User1" Association="HASELONEModel.FK_Cm_CustomerSalesmans_Gn_User1">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_CustomerSalesmans" EntitySet="Cm_CustomerSalesmans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_MachineparkRental_Gn_User_Create" Association="HASELONEModel.FK_Cm_MachineparkRental_Gn_User_Create">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_MachineparkRental" EntitySet="Cm_MachineparkRental" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_MachineparkRental_Gn_User_Delete" Association="HASELONEModel.FK_Cm_MachineparkRental_Gn_User_Delete">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_MachineparkRental" EntitySet="Cm_MachineparkRental" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_MachineparkRental_Gn_User_Update" Association="HASELONEModel.FK_Cm_MachineparkRental_Gn_User_Update">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Cm_MachineparkRental" EntitySet="Cm_MachineparkRental" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gn_UserRoles_Gn_Area" Association="HASELONEModel.FK_Gn_UserRoles_Gn_Area">
+      <End Role="Gn_Area" EntitySet="Gn_Area" />
+      <End Role="Gn_UserRoles" EntitySet="Gn_UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_AreaCity_Cm_AreaCity" Association="HASELONEModel.FK_Cm_AreaCity_Cm_AreaCity">
+      <End Role="Gn_AreaCity" EntitySet="Gn_AreaCity" />
+      <End Role="Gn_AreaCity1" EntitySet="Gn_AreaCity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cm_AreaCityRegions_Cm_AreaCity" Association="HASELONEModel.FK_Cm_AreaCityRegions_Cm_AreaCity">
+      <End Role="Gn_AreaCity" EntitySet="Gn_AreaCity" />
+      <End Role="Gn_AreaCityRegions" EntitySet="Gn_AreaCityRegions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gn_DepartmentRoles_Gn_Category" Association="HASELONEModel.FK_Gn_DepartmentRoles_Gn_Category">
+      <End Role="Gn_Category" EntitySet="Gn_Category" />
+      <End Role="Gn_DepartmentRoles" EntitySet="Gn_DepartmentRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gn_Combos_Gn_ComboTypes" Association="HASELONEModel.FK_Gn_Combos_Gn_ComboTypes">
+      <End Role="Gn_ComboTypes" EntitySet="Gn_ComboTypes" />
+      <End Role="Gn_Combos" EntitySet="Gn_Combos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gn_ContentManagement_Gn_ContentTypes" Association="HASELONEModel.FK_Gn_ContentManagement_Gn_ContentTypes">
+      <End Role="Gn_ContentTypes" EntitySet="Gn_ContentTypes" />
+      <End Role="Gn_ContentManagement" EntitySet="Gn_ContentManagement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gn_DepartmentRoles_Gn_Department" Association="HASELONEModel.FK_Gn_DepartmentRoles_Gn_Department">
+      <End Role="Gn_Department" EntitySet="Gn_Department" />
+      <End Role="Gn_DepartmentRoles" EntitySet="Gn_DepartmentRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gn_DepartmentRoles_Gn_Role" Association="HASELONEModel.FK_Gn_DepartmentRoles_Gn_Role">
+      <End Role="Gn_Role" EntitySet="Gn_Role" />
+      <End Role="Gn_DepartmentRoles" EntitySet="Gn_DepartmentRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gn_UserRoles_Gn_DepartmentRoles" Association="HASELONEModel.FK_Gn_UserRoles_Gn_DepartmentRoles">
+      <End Role="Gn_DepartmentRoles" EntitySet="Gn_DepartmentRoles" />
+      <End Role="Gn_UserRoles" EntitySet="Gn_UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gn_Notifications_Gn_ModulsAndMenus" Association="HASELONEModel.FK_Gn_Notifications_Gn_ModulsAndMenus">
+      <End Role="Gn_ModulsAndMenus" EntitySet="Gn_ModulsAndMenus" />
+      <End Role="Gn_Notifications" EntitySet="Gn_Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gn_Notifications_Gn_User" Association="HASELONEModel.FK_Gn_Notifications_Gn_User">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Gn_Notifications" EntitySet="Gn_Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gn_Notifications_Gn_User2" Association="HASELONEModel.FK_Gn_Notifications_Gn_User2">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Gn_Notifications" EntitySet="Gn_Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gn_UserRoles_Gn_User" Association="HASELONEModel.FK_Gn_UserRoles_Gn_User">
+      <End Role="Gn_User" EntitySet="Gn_User" />
+      <End Role="Gn_UserRoles" EntitySet="Gn_UserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="GetAreaStats_Result">
+    <Property Type="Int32" Name="AreaId" Nullable="true" />
+    <Property Type="String" Name="AreaName" Nullable="true" />
+    <Property Type="Int32" Name="CustomerCount" Nullable="true" />
+    <Property Type="Int32" Name="TotalCustomerCount" Nullable="true" />
+    <Property Type="Int32" Name="MachineParkCount" Nullable="true" />
+    <Property Type="Int32" Name="TotalMachinePark" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetClassifiedMachineparkCounts_Result">
+    <Property Type="Int32" Name="SalesmanId" Nullable="false" />
+    <Property Type="Int32" Name="CRGID" Nullable="true" />
+    <Property Type="Int32" Name="AreaId" Nullable="true" />
+    <Property Type="Int32" Name="MachineparkCategoryId" Nullable="false" />
+    <Property Type="Int32" Name="MarkId" Nullable="true" />
+    <Property Type="Int32" Name="CustomerId" Nullable="false" />
+    <Property Type="Int32" Name="MachineParkCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetSalesmanListForAreaAndOperationType_Result">
+    <Property Type="Int32" Name="UserId" Nullable="true" />
+    <Property Type="Int32" Name="AreaId" Nullable="true" />
+    <Property Type="Int32" Name="DepartmentRuleId" Nullable="true" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetSalesmans_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="AreaId" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="BranchCode" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Fax" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gsm" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="GetSalesmanStats_Result">
+    <Property Type="Int32" Name="SalesmanId" Nullable="true" />
+    <Property Type="String" Name="SalesmanName" Nullable="true" />
+    <Property Type="Int32" Name="CustomerCount" Nullable="true" />
+    <Property Type="Int32" Name="TotalCustomerCount" Nullable="true" />
+    <Property Type="Int32" Name="MachineParkCount" Nullable="true" />
+    <Property Type="Int32" Name="TotalMachinePark" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetSegmentStats_Result">
+    <Property Type="Int32" Name="SegmentId" Nullable="true" />
+    <Property Type="String" Name="SegmentName" Nullable="true" />
+    <Property Type="Int32" Name="CustomerCount" Nullable="true" />
+    <Property Type="Int32" Name="TotalCustomerCount" Nullable="true" />
+    <Property Type="Int32" Name="MachineParkCount" Nullable="true" />
+    <Property Type="Int32" Name="TotalMachinePark" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Cm_Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaxOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaxNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsHasel" Type="Boolean" />
+    <Property Name="NetsisRentliftCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NetsisHaselCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SectorId" Type="Int32" />
+    <Property Name="Web" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StatusId" Type="Int32" />
+    <Property Name="CreatorId" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifierId" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsRental" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cm_CustomerAuthenticators" Relationship="HASELONEModel.FK_Cm_CustomerAuthenticators_Cm_Customer" FromRole="Cm_Customer" ToRole="Cm_CustomerAuthenticators" />
+    <NavigationProperty Name="Cm_CustomerInterviews" Relationship="HASELONEModel.FK_Cm_CustomerInterviews_Cm_Customer" FromRole="Cm_Customer" ToRole="Cm_CustomerInterviews" />
+    <NavigationProperty Name="Cm_CustomerLocations" Relationship="HASELONEModel.FK_Cm_CustomerLocations_Cm_Customer" FromRole="Cm_Customer" ToRole="Cm_CustomerLocations" />
+    <NavigationProperty Name="Cm_CustomerMachineparks" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_Customer" FromRole="Cm_Customer" ToRole="Cm_CustomerMachineparks" />
+    <NavigationProperty Name="Cm_CustomerRequest" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Cm_Customer" FromRole="Cm_Customer" ToRole="Cm_CustomerRequest" />
+    <NavigationProperty Name="Cm_CustomerSalesmans" Relationship="HASELONEModel.FK_Cm_CustomerSalesmans_Cm_Customer" FromRole="Cm_Customer" ToRole="Cm_CustomerSalesmans" />
+    <NavigationProperty Name="Cm_MachineparkRental" Relationship="HASELONEModel.FK_Cm_MachineparkRental_Cm_Customer" FromRole="Cm_Customer" ToRole="Cm_MachineparkRental" />
+  </EntityType>
+  <EntityType Name="Cm_CustomerAuthenticators">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreatorId" Type="Int32" />
+    <Property Name="ModifierId" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gsm" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Phone1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Phone2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerLocationId" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DeleterId" Type="Int32" />
+    <Property Name="DeleterDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cm_Customer" Relationship="HASELONEModel.FK_Cm_CustomerAuthenticators_Cm_Customer" FromRole="Cm_CustomerAuthenticators" ToRole="Cm_Customer" />
+    <NavigationProperty Name="Gn_User" Relationship="HASELONEModel.FK_Cm_CustomerAuthenticators_Gn_User" FromRole="Cm_CustomerAuthenticators" ToRole="Gn_User" />
+    <NavigationProperty Name="Cm_CustomerInterviews" Relationship="HASELONEModel.FK_Cm_CustomerInterviews_Cm_CustomerAuthenticators" FromRole="Cm_CustomerAuthenticators" ToRole="Cm_CustomerInterviews" />
+  </EntityType>
+  <EntityType Name="Cm_CustomerInterviews">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="AuthenticatorId" Type="Int32" />
+    <Property Name="InterviewTypeId" Type="Int32" Nullable="false" />
+    <Property Name="InterviewDate" Type="DateTime" Precision="3" />
+    <Property Name="PlannedInterviewDate" Type="DateTime" Precision="3" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatorId" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifierId" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleterId" Type="Int32" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="ImportantId" Type="Int32" />
+    <NavigationProperty Name="Cm_Customer" Relationship="HASELONEModel.FK_Cm_CustomerInterviews_Cm_Customer" FromRole="Cm_CustomerInterviews" ToRole="Cm_Customer" />
+    <NavigationProperty Name="Cm_CustomerAuthenticators" Relationship="HASELONEModel.FK_Cm_CustomerInterviews_Cm_CustomerAuthenticators" FromRole="Cm_CustomerInterviews" ToRole="Cm_CustomerAuthenticators" />
+    <NavigationProperty Name="Cm_Interview" Relationship="HASELONEModel.FK_Cm_CustomerInterviews_Cm_Interview" FromRole="Cm_CustomerInterviews" ToRole="Cm_Interview" />
+    <NavigationProperty Name="Gn_InterviewImportant" Relationship="HASELONEModel.FK_Cm_CustomerInterviews_Gn_InterviewImportant" FromRole="Cm_CustomerInterviews" ToRole="Gn_InterviewImportant" />
+    <NavigationProperty Name="Gn_User" Relationship="HASELONEModel.FK_Cm_CustomerInterviews_Gn_User" FromRole="Cm_CustomerInterviews" ToRole="Gn_User" />
+  </EntityType>
+  <EntityType Name="Cm_CustomerLocations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RegionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsFat" Type="Boolean" />
+    <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatorId" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifierId" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DeleterId" Type="Int32" />
+    <Property Name="DeleterDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cm_Customer" Relationship="HASELONEModel.FK_Cm_CustomerLocations_Cm_Customer" FromRole="Cm_CustomerLocations" ToRole="Cm_Customer" />
+    <NavigationProperty Name="Gn_User" Relationship="HASELONEModel.FK_Cm_CustomerLocations_Gn_User" FromRole="Cm_CustomerLocations" ToRole="Gn_User" />
+    <NavigationProperty Name="Cm_CustomerMachineparks" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_CustomerLocations" FromRole="Cm_CustomerLocations" ToRole="Cm_CustomerMachineparks" />
+  </EntityType>
+  <EntityType Name="Cm_CustomerMachineparks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="LocationId" Type="Int32" />
+    <Property Name="OwnerId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="MarkId" Type="Int32" />
+    <Property Name="ModelId" Type="Int32" />
+    <Property Name="RequestId" Type="Int32" />
+    <Property Name="SerialNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ManufactureYear" Type="Int32" />
+    <Property Name="SaleDate" Type="DateTime" Precision="0" />
+    <Property Name="ReleaseDate" Type="DateTime" Precision="3" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="RefRowId" Type="Int32" />
+    <Property Name="CreateUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUserId" Type="Int32" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cm_Customer" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_Customer" FromRole="Cm_CustomerMachineparks" ToRole="Cm_Customer" />
+    <NavigationProperty Name="Cm_CustomerLocations" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_CustomerLocations" FromRole="Cm_CustomerMachineparks" ToRole="Cm_CustomerLocations" />
+    <NavigationProperty Name="Cm_CustomerRequest" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_CustomerRequest" FromRole="Cm_CustomerMachineparks" ToRole="Cm_CustomerRequest" />
+    <NavigationProperty Name="Cm_MachineparkCategory" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_MachineparkCategoriy" FromRole="Cm_CustomerMachineparks" ToRole="Cm_MachineparkCategory" />
+    <NavigationProperty Name="Cm_MachineparkMark" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_MachineparkMark" FromRole="Cm_CustomerMachineparks" ToRole="Cm_MachineparkMark" />
+    <NavigationProperty Name="Gn_User" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Gn_User_Creator" FromRole="Cm_CustomerMachineparks" ToRole="Gn_User" />
+    <NavigationProperty Name="Gn_User1" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Gn_User_Delete" FromRole="Cm_CustomerMachineparks" ToRole="Gn_User" />
+    <NavigationProperty Name="Gn_User2" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Gn_User_Modifier" FromRole="Cm_CustomerMachineparks" ToRole="Gn_User" />
+    <NavigationProperty Name="Pr_MachineModel" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Pr_MachineModel" FromRole="Cm_CustomerMachineparks" ToRole="Pr_MachineModel" />
+    <NavigationProperty Name="Cm_MachineparkRental" Relationship="HASELONEModel.FK_Cm_MachineparkRental_Cm_CustomerMachineparks" FromRole="Cm_CustomerMachineparks" ToRole="Cm_MachineparkRental" />
+  </EntityType>
+  <EntityType Name="Cm_CustomerRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="MarkId" Type="Int32" />
+    <Property Name="ModelId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="SalesType" Type="Int32" Nullable="false" />
+    <Property Name="EstimatedBuyDate" Type="DateTime" Precision="0" />
+    <Property Name="UseDuration" Type="Int32" />
+    <Property Name="UseDurationUnit" Type="Int32" />
+    <Property Name="OwnerId" Type="Int32" />
+    <Property Name="ChannelId" Type="Int32" Nullable="false" />
+    <Property Name="SalesmanId" Type="Int32" />
+    <Property Name="ConditionType" Type="Int16" />
+    <Property Name="MonthlyWorkingHours" Type="Int32" />
+    <Property Name="ResultType" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreateUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUserId" Type="Int32" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Note" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cm_Customer" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Cm_Customer" FromRole="Cm_CustomerRequest" ToRole="Cm_Customer" />
+    <NavigationProperty Name="Cm_CustomerMachineparks" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_CustomerRequest" FromRole="Cm_CustomerRequest" ToRole="Cm_CustomerMachineparks" />
+    <NavigationProperty Name="Cm_MachineparkCategory" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Cm_MachineparkCategory" FromRole="Cm_CustomerRequest" ToRole="Cm_MachineparkCategory" />
+    <NavigationProperty Name="Cm_MachineparkMark" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Cm_MachineparkMark" FromRole="Cm_CustomerRequest" ToRole="Cm_MachineparkMark" />
+    <NavigationProperty Name="Gn_ConnectionChannel" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Gn_ConnectionChannel" FromRole="Cm_CustomerRequest" ToRole="Gn_ConnectionChannel" />
+    <NavigationProperty Name="Gn_User" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_CreateUser" FromRole="Cm_CustomerRequest" ToRole="Gn_User" />
+    <NavigationProperty Name="Gn_User1" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_DeleteUser" FromRole="Cm_CustomerRequest" ToRole="Gn_User" />
+    <NavigationProperty Name="Gn_User2" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_OwnerId" FromRole="Cm_CustomerRequest" ToRole="Gn_User" />
+    <NavigationProperty Name="Gn_User3" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_Salesmanid" FromRole="Cm_CustomerRequest" ToRole="Gn_User" />
+    <NavigationProperty Name="Gn_User4" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_UpdateUser" FromRole="Cm_CustomerRequest" ToRole="Gn_User" />
+    <NavigationProperty Name="Pr_MachineModel" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Pr_MachineModel" FromRole="Cm_CustomerRequest" ToRole="Pr_MachineModel" />
+    <NavigationProperty Name="Cm_MachineparkRental" Relationship="HASELONEModel.FK_Cm_MachineparkRental_Cm_CustomerRequest" FromRole="Cm_CustomerRequest" ToRole="Cm_MachineparkRental" />
+  </EntityType>
+  <EntityType Name="Cm_CustomerSalesmans">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="SalesmanId" Type="Int32" />
+    <Property Name="CRGID" Type="Int32" />
+    <Property Name="Flag" Type="Boolean" />
+    <Property Name="CreatorName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifierName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DeleterId" Type="Int32" />
+    <Property Name="DeleterDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cm_Customer" Relationship="HASELONEModel.FK_Cm_CustomerSalesmans_Cm_Customer" FromRole="Cm_CustomerSalesmans" ToRole="Cm_Customer" />
+    <NavigationProperty Name="Gn_User" Relationship="HASELONEModel.FK_Cm_CustomerSalesmans_Gn_User" FromRole="Cm_CustomerSalesmans" ToRole="Gn_User" />
+    <NavigationProperty Name="Gn_User1" Relationship="HASELONEModel.FK_Cm_CustomerSalesmans_Gn_User1" FromRole="Cm_CustomerSalesmans" ToRole="Gn_User" />
+  </EntityType>
+  <EntityType Name="Cm_Interview">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Cm_CustomerInterviews" Relationship="HASELONEModel.FK_Cm_CustomerInterviews_Cm_Interview" FromRole="Cm_Interview" ToRole="Cm_CustomerInterviews" />
+  </EntityType>
+  <EntityType Name="Cm_MachineparkCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OrderBy" Type="Int32" />
+    <NavigationProperty Name="Cm_CustomerMachineparks" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_MachineparkCategoriy" FromRole="Cm_MachineparkCategory" ToRole="Cm_CustomerMachineparks" />
+    <NavigationProperty Name="Cm_CustomerRequest" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Cm_MachineparkCategory" FromRole="Cm_MachineparkCategory" ToRole="Cm_CustomerRequest" />
+  </EntityType>
+  <EntityType Name="Cm_MachineparkMark">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MarkName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsOwnerMachine" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Cm_CustomerMachineparks" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_MachineparkMark" FromRole="Cm_MachineparkMark" ToRole="Cm_CustomerMachineparks" />
+    <NavigationProperty Name="Cm_CustomerRequest" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Cm_MachineparkMark" FromRole="Cm_MachineparkMark" ToRole="Cm_CustomerRequest" />
+  </EntityType>
+  <EntityType Name="Cm_MachineparkOwnership">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Cm_MachineparkRental">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MachineparkId" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="RequestId" Type="Int32" />
+    <Property Name="BeginDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUserId" Type="Int32" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="IsAborted" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cm_Customer" Relationship="HASELONEModel.FK_Cm_MachineparkRental_Cm_Customer" FromRole="Cm_MachineparkRental" ToRole="Cm_Customer" />
+    <NavigationProperty Name="Cm_CustomerMachineparks" Relationship="HASELONEModel.FK_Cm_MachineparkRental_Cm_CustomerMachineparks" FromRole="Cm_MachineparkRental" ToRole="Cm_CustomerMachineparks" />
+    <NavigationProperty Name="Cm_CustomerRequest" Relationship="HASELONEModel.FK_Cm_MachineparkRental_Cm_CustomerRequest" FromRole="Cm_MachineparkRental" ToRole="Cm_CustomerRequest" />
+    <NavigationProperty Name="Gn_User" Relationship="HASELONEModel.FK_Cm_MachineparkRental_Gn_User_Create" FromRole="Cm_MachineparkRental" ToRole="Gn_User" />
+    <NavigationProperty Name="Gn_User1" Relationship="HASELONEModel.FK_Cm_MachineparkRental_Gn_User_Delete" FromRole="Cm_MachineparkRental" ToRole="Gn_User" />
+    <NavigationProperty Name="Gn_User2" Relationship="HASELONEModel.FK_Cm_MachineparkRental_Gn_User_Update" FromRole="Cm_MachineparkRental" ToRole="Gn_User" />
+  </EntityType>
+  <EntityType Name="Cm_MachineparkYear">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Year" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Gn_Area">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MainAreaId" Type="Int32" />
+    <NavigationProperty Name="Gn_UserRoles" Relationship="HASELONEModel.FK_Gn_UserRoles_Gn_Area" FromRole="Gn_Area" ToRole="Gn_UserRoles" />
+  </EntityType>
+  <EntityType Name="Gn_AreaCity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PlateCode" Type="Int32" Nullable="false" />
+    <Property Name="PhonePrefix" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gn_AreaCity1" Relationship="HASELONEModel.FK_Cm_AreaCity_Cm_AreaCity" FromRole="Gn_AreaCity" ToRole="Gn_AreaCity1" />
+    <NavigationProperty Name="Gn_AreaCity2" Relationship="HASELONEModel.FK_Cm_AreaCity_Cm_AreaCity" FromRole="Gn_AreaCity1" ToRole="Gn_AreaCity" />
+    <NavigationProperty Name="Gn_AreaCityRegions" Relationship="HASELONEModel.FK_Cm_AreaCityRegions_Cm_AreaCity" FromRole="Gn_AreaCity" ToRole="Gn_AreaCityRegions" />
+  </EntityType>
+  <EntityType Name="Gn_AreaCityRegions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="RegionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gn_AreaCity" Relationship="HASELONEModel.FK_Cm_AreaCityRegions_Cm_AreaCity" FromRole="Gn_AreaCityRegions" ToRole="Gn_AreaCity" />
+  </EntityType>
+  <EntityType Name="Gn_Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Gn_DepartmentRoles" Relationship="HASELONEModel.FK_Gn_DepartmentRoles_Gn_Category" FromRole="Gn_Category" ToRole="Gn_DepartmentRoles" />
+  </EntityType>
+  <EntityType Name="Gn_CategoryDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="CRGId" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Gn_Combos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComboTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Key" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gn_ComboTypes" Relationship="HASELONEModel.FK_Gn_Combos_Gn_ComboTypes" FromRole="Gn_Combos" ToRole="Gn_ComboTypes" />
+  </EntityType>
+  <EntityType Name="Gn_ComboTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gn_Combos" Relationship="HASELONEModel.FK_Gn_Combos_Gn_ComboTypes" FromRole="Gn_ComboTypes" ToRole="Gn_Combos" />
+  </EntityType>
+  <EntityType Name="Gn_ConnectionChannel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cm_CustomerRequest" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Gn_ConnectionChannel" FromRole="Gn_ConnectionChannel" ToRole="Cm_CustomerRequest" />
+  </EntityType>
+  <EntityType Name="Gn_ContentManagement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContentType" Type="Int32" Nullable="false" />
+    <Property Name="ModulId" Type="Int32" Nullable="false" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatorId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifierId" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="DeleterId" Type="Int32" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Gn_ContentTypes" Relationship="HASELONEModel.FK_Gn_ContentManagement_Gn_ContentTypes" FromRole="Gn_ContentManagement" ToRole="Gn_ContentTypes" />
+  </EntityType>
+  <EntityType Name="Gn_ContentTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gn_ContentManagement" Relationship="HASELONEModel.FK_Gn_ContentManagement_Gn_ContentTypes" FromRole="Gn_ContentTypes" ToRole="Gn_ContentManagement" />
+  </EntityType>
+  <EntityType Name="Gn_Control">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModulId" Type="Int32" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="ControlId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ControlTypeName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ControlText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ControlTextEng" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsVisible" Type="Boolean" />
+    <Property Name="IsEnable" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Gn_ControlAuthorities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="ControlId" Type="Int32" />
+    <Property Name="IsVisible" Type="Boolean" />
+    <Property Name="IsEnable" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Gn_Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gn_DepartmentRoles" Relationship="HASELONEModel.FK_Gn_DepartmentRoles_Gn_Department" FromRole="Gn_Department" ToRole="Gn_DepartmentRoles" />
+  </EntityType>
+  <EntityType Name="Gn_DepartmentRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="RuleId" Type="Int32" />
+    <NavigationProperty Name="Gn_Category" Relationship="HASELONEModel.FK_Gn_DepartmentRoles_Gn_Category" FromRole="Gn_DepartmentRoles" ToRole="Gn_Category" />
+    <NavigationProperty Name="Gn_Department" Relationship="HASELONEModel.FK_Gn_DepartmentRoles_Gn_Department" FromRole="Gn_DepartmentRoles" ToRole="Gn_Department" />
+    <NavigationProperty Name="Gn_Role" Relationship="HASELONEModel.FK_Gn_DepartmentRoles_Gn_Role" FromRole="Gn_DepartmentRoles" ToRole="Gn_Role" />
+    <NavigationProperty Name="Gn_UserRoles" Relationship="HASELONEModel.FK_Gn_UserRoles_Gn_DepartmentRoles" FromRole="Gn_DepartmentRoles" ToRole="Gn_UserRoles" />
+  </EntityType>
+  <EntityType Name="Gn_InterviewImportant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Import" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Cm_CustomerInterviews" Relationship="HASELONEModel.FK_Cm_CustomerInterviews_Gn_InterviewImportant" FromRole="Gn_InterviewImportant" ToRole="Cm_CustomerInterviews" />
+  </EntityType>
+  <EntityType Name="Gn_ModulsAndMenus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LinkedModulId" Type="Int32" Nullable="false" />
+    <Property Name="ParentId" Type="Int32" Nullable="false" />
+    <Property Name="MenuName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="PageName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IndexOrder" Type="Int32" Nullable="false" />
+    <Property Name="IconName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PageSeofriendlyName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PageNameText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PageNameTextEng" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PageDescription" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Gn_Notifications" Relationship="HASELONEModel.FK_Gn_Notifications_Gn_ModulsAndMenus" FromRole="Gn_ModulsAndMenus" ToRole="Gn_Notifications" />
+  </EntityType>
+  <EntityType Name="Gn_Notifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModulId" Type="Int32" />
+    <Property Name="PageId" Type="Int32" />
+    <Property Name="CrudId" Type="Int32" />
+    <Property Name="SenderUserId" Type="Int32" />
+    <Property Name="TargetUserId" Type="Int32" Nullable="false" />
+    <Property Name="SendDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ReceiveDate" Type="DateTime" Precision="3" />
+    <Property Name="NotifyMessage" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatorId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifierId" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="DeleterId" Type="Int32" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Gn_ModulsAndMenus" Relationship="HASELONEModel.FK_Gn_Notifications_Gn_ModulsAndMenus" FromRole="Gn_Notifications" ToRole="Gn_ModulsAndMenus" />
+    <NavigationProperty Name="Gn_User" Relationship="HASELONEModel.FK_Gn_Notifications_Gn_User" FromRole="Gn_Notifications" ToRole="Gn_User" />
+    <NavigationProperty Name="Gn_User1" Relationship="HASELONEModel.FK_Gn_Notifications_Gn_User2" FromRole="Gn_Notifications" ToRole="Gn_User" />
+  </EntityType>
+  <EntityType Name="Gn_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="RuleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gn_DepartmentRoles" Relationship="HASELONEModel.FK_Gn_DepartmentRoles_Gn_Role" FromRole="Gn_Role" ToRole="Gn_DepartmentRoles" />
+  </EntityType>
+  <EntityType Name="Gn_RoleRelation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="ParentRoleId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Gn_Sector">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SectorName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Gn_Segment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MinValue" Type="Int32" Nullable="false" />
+    <Property Name="MaxValue" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gn_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BranchCode" Type="Int32" />
+    <Property Name="AreaId" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Gsm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatorId" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifierId" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Cm_CustomerAuthenticators" Relationship="HASELONEModel.FK_Cm_CustomerAuthenticators_Gn_User" FromRole="Gn_User" ToRole="Cm_CustomerAuthenticators" />
+    <NavigationProperty Name="Cm_CustomerInterviews" Relationship="HASELONEModel.FK_Cm_CustomerInterviews_Gn_User" FromRole="Gn_User" ToRole="Cm_CustomerInterviews" />
+    <NavigationProperty Name="Cm_CustomerLocations" Relationship="HASELONEModel.FK_Cm_CustomerLocations_Gn_User" FromRole="Gn_User" ToRole="Cm_CustomerLocations" />
+    <NavigationProperty Name="Cm_CustomerMachineparks" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Gn_User_Creator" FromRole="Gn_User" ToRole="Cm_CustomerMachineparks" />
+    <NavigationProperty Name="Cm_CustomerMachineparks1" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Gn_User_Delete" FromRole="Gn_User" ToRole="Cm_CustomerMachineparks" />
+    <NavigationProperty Name="Cm_CustomerMachineparks2" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Gn_User_Modifier" FromRole="Gn_User" ToRole="Cm_CustomerMachineparks" />
+    <NavigationProperty Name="Cm_CustomerRequest" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_CreateUser" FromRole="Gn_User" ToRole="Cm_CustomerRequest" />
+    <NavigationProperty Name="Cm_CustomerRequest1" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_DeleteUser" FromRole="Gn_User" ToRole="Cm_CustomerRequest" />
+    <NavigationProperty Name="Cm_CustomerRequest2" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_OwnerId" FromRole="Gn_User" ToRole="Cm_CustomerRequest" />
+    <NavigationProperty Name="Cm_CustomerRequest3" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_Salesmanid" FromRole="Gn_User" ToRole="Cm_CustomerRequest" />
+    <NavigationProperty Name="Cm_CustomerRequest4" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_UpdateUser" FromRole="Gn_User" ToRole="Cm_CustomerRequest" />
+    <NavigationProperty Name="Cm_CustomerSalesmans" Relationship="HASELONEModel.FK_Cm_CustomerSalesmans_Gn_User" FromRole="Gn_User" ToRole="Cm_CustomerSalesmans" />
+    <NavigationProperty Name="Cm_CustomerSalesmans1" Relationship="HASELONEModel.FK_Cm_CustomerSalesmans_Gn_User1" FromRole="Gn_User" ToRole="Cm_CustomerSalesmans" />
+    <NavigationProperty Name="Cm_MachineparkRental" Relationship="HASELONEModel.FK_Cm_MachineparkRental_Gn_User_Create" FromRole="Gn_User" ToRole="Cm_MachineparkRental" />
+    <NavigationProperty Name="Cm_MachineparkRental1" Relationship="HASELONEModel.FK_Cm_MachineparkRental_Gn_User_Delete" FromRole="Gn_User" ToRole="Cm_MachineparkRental" />
+    <NavigationProperty Name="Cm_MachineparkRental2" Relationship="HASELONEModel.FK_Cm_MachineparkRental_Gn_User_Update" FromRole="Gn_User" ToRole="Cm_MachineparkRental" />
+    <NavigationProperty Name="Gn_Notifications" Relationship="HASELONEModel.FK_Gn_Notifications_Gn_User" FromRole="Gn_User" ToRole="Gn_Notifications" />
+    <NavigationProperty Name="Gn_Notifications1" Relationship="HASELONEModel.FK_Gn_Notifications_Gn_User2" FromRole="Gn_User" ToRole="Gn_Notifications" />
+    <NavigationProperty Name="Gn_UserRoles" Relationship="HASELONEModel.FK_Gn_UserRoles_Gn_User" FromRole="Gn_User" ToRole="Gn_UserRoles" />
+  </EntityType>
+  <EntityType Name="Gn_UserGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Gn_UserGroupRights">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserGroupId" Type="Int32" Nullable="false" />
+    <Property Name="ModulId" Type="Int32" Nullable="false" />
+    <Property Name="RecordInsert" Type="Boolean" />
+    <Property Name="RecordEdit" Type="Boolean" />
+    <Property Name="RecordShow" Type="Boolean" />
+    <Property Name="RecordDelete" Type="Boolean" />
+    <Property Name="CreatorName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifierName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Gn_UserModuls">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModulName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Gn_UserRights">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="ModulId" Type="Int32" Nullable="false" />
+    <Property Name="RecordInsert" Type="Boolean" />
+    <Property Name="RecordEdit" Type="Boolean" />
+    <Property Name="RecordShow" Type="Boolean" />
+    <Property Name="RecordDelete" Type="Boolean" />
+    <Property Name="CreatorName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifierName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Gn_UserRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="AreaId" Type="Int32" />
+    <Property Name="DepartmentRuleId" Type="Int32" />
+    <NavigationProperty Name="Gn_Area" Relationship="HASELONEModel.FK_Gn_UserRoles_Gn_Area" FromRole="Gn_UserRoles" ToRole="Gn_Area" />
+    <NavigationProperty Name="Gn_DepartmentRoles" Relationship="HASELONEModel.FK_Gn_UserRoles_Gn_DepartmentRoles" FromRole="Gn_UserRoles" ToRole="Gn_DepartmentRoles" />
+    <NavigationProperty Name="Gn_User" Relationship="HASELONEModel.FK_Gn_UserRoles_Gn_User" FromRole="Gn_UserRoles" ToRole="Gn_User" />
+  </EntityType>
+  <EntityType Name="Log_Cm_Customer">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="TaxOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaxNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsHasel" Type="Boolean" />
+    <Property Name="NetsisRentliftCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NetsisHaselCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SectorId" Type="Int32" />
+    <Property Name="Web" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StatusId" Type="Int32" />
+    <Property Name="CreatorId" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifierId" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsRental" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Log_Cm_CustomerAuthenticators">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CreatorId" Type="Int32" />
+    <Property Name="ModifierId" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gsm" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Phone1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Phone2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerLocationId" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DeleterId" Type="Int32" />
+    <Property Name="DeleterDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Log_Cm_CustomerInterviews">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="AuthenticatorId" Type="Int32" />
+    <Property Name="InterviewTypeId" Type="Int32" Nullable="false" />
+    <Property Name="InterviewDate" Type="DateTime" Precision="3" />
+    <Property Name="PlannedInterviewDate" Type="DateTime" Precision="3" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatorId" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifierId" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleterId" Type="Int32" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="ImportantId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Log_Cm_CustomerLocations">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RegionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsFat" Type="Boolean" />
+    <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatorId" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifierId" Type="Int32" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DeleterId" Type="Int32" />
+    <Property Name="DeleterDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Log_Cm_CustomerMachineparks">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="LocationId" Type="Int32" />
+    <Property Name="OwnerId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="MarkId" Type="Int32" />
+    <Property Name="ModelId" Type="Int32" />
+    <Property Name="RequestId" Type="Int32" />
+    <Property Name="SerialNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ManufactureYear" Type="Int32" />
+    <Property Name="SaleDate" Type="DateTime" Precision="0" />
+    <Property Name="ReleaseDate" Type="DateTime" Precision="3" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="RefRowId" Type="Int32" />
+    <Property Name="CreateUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUserId" Type="Int32" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Log_Cm_CustomerRequest">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="MarkId" Type="Int32" />
+    <Property Name="ModelId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="SalesType" Type="Int32" Nullable="false" />
+    <Property Name="EstimatedBuyDate" Type="DateTime" Precision="0" />
+    <Property Name="UseDuration" Type="Int32" />
+    <Property Name="UseDurationUnit" Type="Int32" />
+    <Property Name="OwnerId" Type="Int32" />
+    <Property Name="ChannelId" Type="Int32" Nullable="false" />
+    <Property Name="SalesmanId" Type="Int32" />
+    <Property Name="ConditionType" Type="Int16" />
+    <Property Name="MonthlyWorkingHours" Type="Int32" />
+    <Property Name="ResultType" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreateUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUserId" Type="Int32" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Note" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Log_Cm_CustomerSalesmans">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="SalesmanId" Type="Int32" />
+    <Property Name="CRGID" Type="Int32" />
+    <Property Name="Flag" Type="Boolean" />
+    <Property Name="CreatorName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifierName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DeleterId" Type="Int32" />
+    <Property Name="DeleterDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Log_Cm_MachineparkRental">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="MachineparkId" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="RequestId" Type="Int32" />
+    <Property Name="BeginDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUserId" Type="Int32" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="IsAborted" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ns_BranchCode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NetsisBranchCode" Type="Int32" />
+    <Property Name="BranchName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Pr_MachineModel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="MarkId" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="RequestVisible" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cm_CustomerMachineparks" Relationship="HASELONEModel.FK_Cm_CustomerMachineparks_Pr_MachineModel" FromRole="Pr_MachineModel" ToRole="Cm_CustomerMachineparks" />
+    <NavigationProperty Name="Cm_CustomerRequest" Relationship="HASELONEModel.FK_Cm_CustomerRequest_Pr_MachineModel" FromRole="Pr_MachineModel" ToRole="Cm_CustomerRequest" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Cm_CustomerAuthenticators_Cm_Customer">
+    <End Type="HASELONEModel.Cm_Customer" Role="Cm_Customer" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerAuthenticators" Role="Cm_CustomerAuthenticators" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerAuthenticators">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerInterviews_Cm_Customer">
+    <End Type="HASELONEModel.Cm_Customer" Role="Cm_Customer" Multiplicity="1" />
+    <End Type="HASELONEModel.Cm_CustomerInterviews" Role="Cm_CustomerInterviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerInterviews">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerLocations_Cm_Customer">
+    <End Type="HASELONEModel.Cm_Customer" Role="Cm_Customer" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerLocations" Role="Cm_CustomerLocations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerLocations">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerMachineparks_Cm_Customer">
+    <End Type="HASELONEModel.Cm_Customer" Role="Cm_Customer" Multiplicity="1" />
+    <End Type="HASELONEModel.Cm_CustomerMachineparks" Role="Cm_CustomerMachineparks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerMachineparks">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerRequest_Cm_Customer">
+    <End Type="HASELONEModel.Cm_Customer" Role="Cm_Customer" Multiplicity="1" />
+    <End Type="HASELONEModel.Cm_CustomerRequest" Role="Cm_CustomerRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerRequest">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerSalesmans_Cm_Customer">
+    <End Type="HASELONEModel.Cm_Customer" Role="Cm_Customer" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerSalesmans" Role="Cm_CustomerSalesmans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerSalesmans">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_MachineparkRental_Cm_Customer">
+    <End Type="HASELONEModel.Cm_Customer" Role="Cm_Customer" Multiplicity="1" />
+    <End Type="HASELONEModel.Cm_MachineparkRental" Role="Cm_MachineparkRental" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_MachineparkRental">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerAuthenticators_Gn_User">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerAuthenticators" Role="Cm_CustomerAuthenticators" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerAuthenticators">
+        <PropertyRef Name="DeleterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerInterviews_Cm_CustomerAuthenticators">
+    <End Type="HASELONEModel.Cm_CustomerAuthenticators" Role="Cm_CustomerAuthenticators" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerInterviews" Role="Cm_CustomerInterviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_CustomerAuthenticators">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerInterviews">
+        <PropertyRef Name="AuthenticatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerInterviews_Cm_Interview">
+    <End Type="HASELONEModel.Cm_Interview" Role="Cm_Interview" Multiplicity="1" />
+    <End Type="HASELONEModel.Cm_CustomerInterviews" Role="Cm_CustomerInterviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_Interview">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerInterviews">
+        <PropertyRef Name="InterviewTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerInterviews_Gn_InterviewImportant">
+    <End Type="HASELONEModel.Gn_InterviewImportant" Role="Gn_InterviewImportant" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerInterviews" Role="Cm_CustomerInterviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_InterviewImportant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerInterviews">
+        <PropertyRef Name="ImportantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerInterviews_Gn_User">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="1" />
+    <End Type="HASELONEModel.Cm_CustomerInterviews" Role="Cm_CustomerInterviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerInterviews">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerLocations_Gn_User">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerLocations" Role="Cm_CustomerLocations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerLocations">
+        <PropertyRef Name="DeleterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerMachineparks_Cm_CustomerLocations">
+    <End Type="HASELONEModel.Cm_CustomerLocations" Role="Cm_CustomerLocations" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerMachineparks" Role="Cm_CustomerMachineparks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_CustomerLocations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerMachineparks">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerMachineparks_Cm_CustomerRequest">
+    <End Type="HASELONEModel.Cm_CustomerRequest" Role="Cm_CustomerRequest" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerMachineparks" Role="Cm_CustomerMachineparks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_CustomerRequest">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerMachineparks">
+        <PropertyRef Name="RequestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerMachineparks_Cm_MachineparkCategoriy">
+    <End Type="HASELONEModel.Cm_MachineparkCategory" Role="Cm_MachineparkCategory" Multiplicity="1" />
+    <End Type="HASELONEModel.Cm_CustomerMachineparks" Role="Cm_CustomerMachineparks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_MachineparkCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerMachineparks">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerMachineparks_Cm_MachineparkMark">
+    <End Type="HASELONEModel.Cm_MachineparkMark" Role="Cm_MachineparkMark" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerMachineparks" Role="Cm_CustomerMachineparks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_MachineparkMark">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerMachineparks">
+        <PropertyRef Name="MarkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerMachineparks_Gn_User_Creator">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="1" />
+    <End Type="HASELONEModel.Cm_CustomerMachineparks" Role="Cm_CustomerMachineparks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerMachineparks">
+        <PropertyRef Name="CreateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerMachineparks_Gn_User_Delete">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerMachineparks" Role="Cm_CustomerMachineparks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerMachineparks">
+        <PropertyRef Name="DeleteUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerMachineparks_Gn_User_Modifier">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerMachineparks" Role="Cm_CustomerMachineparks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerMachineparks">
+        <PropertyRef Name="UpdateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerMachineparks_Pr_MachineModel">
+    <End Type="HASELONEModel.Pr_MachineModel" Role="Pr_MachineModel" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerMachineparks" Role="Cm_CustomerMachineparks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pr_MachineModel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerMachineparks">
+        <PropertyRef Name="ModelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_MachineparkRental_Cm_CustomerMachineparks">
+    <End Type="HASELONEModel.Cm_CustomerMachineparks" Role="Cm_CustomerMachineparks" Multiplicity="1" />
+    <End Type="HASELONEModel.Cm_MachineparkRental" Role="Cm_MachineparkRental" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_CustomerMachineparks">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_MachineparkRental">
+        <PropertyRef Name="MachineparkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerRequest_Cm_MachineparkCategory">
+    <End Type="HASELONEModel.Cm_MachineparkCategory" Role="Cm_MachineparkCategory" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerRequest" Role="Cm_CustomerRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_MachineparkCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerRequest">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerRequest_Cm_MachineparkMark">
+    <End Type="HASELONEModel.Cm_MachineparkMark" Role="Cm_MachineparkMark" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerRequest" Role="Cm_CustomerRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_MachineparkMark">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerRequest">
+        <PropertyRef Name="MarkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerRequest_Gn_ConnectionChannel">
+    <End Type="HASELONEModel.Gn_ConnectionChannel" Role="Gn_ConnectionChannel" Multiplicity="1" />
+    <End Type="HASELONEModel.Cm_CustomerRequest" Role="Cm_CustomerRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_ConnectionChannel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerRequest">
+        <PropertyRef Name="ChannelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerRequest_Gn_User_CreateUser">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="1" />
+    <End Type="HASELONEModel.Cm_CustomerRequest" Role="Cm_CustomerRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerRequest">
+        <PropertyRef Name="CreateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerRequest_Gn_User_DeleteUser">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerRequest" Role="Cm_CustomerRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerRequest">
+        <PropertyRef Name="DeleteUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerRequest_Gn_User_OwnerId">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerRequest" Role="Cm_CustomerRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerRequest">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerRequest_Gn_User_Salesmanid">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerRequest" Role="Cm_CustomerRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerRequest">
+        <PropertyRef Name="SalesmanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerRequest_Gn_User_UpdateUser">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerRequest" Role="Cm_CustomerRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerRequest">
+        <PropertyRef Name="UpdateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerRequest_Pr_MachineModel">
+    <End Type="HASELONEModel.Pr_MachineModel" Role="Pr_MachineModel" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerRequest" Role="Cm_CustomerRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pr_MachineModel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerRequest">
+        <PropertyRef Name="ModelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_MachineparkRental_Cm_CustomerRequest">
+    <End Type="HASELONEModel.Cm_CustomerRequest" Role="Cm_CustomerRequest" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_MachineparkRental" Role="Cm_MachineparkRental" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cm_CustomerRequest">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_MachineparkRental">
+        <PropertyRef Name="RequestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerSalesmans_Gn_User">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerSalesmans" Role="Cm_CustomerSalesmans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerSalesmans">
+        <PropertyRef Name="DeleterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_CustomerSalesmans_Gn_User1">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_CustomerSalesmans" Role="Cm_CustomerSalesmans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_CustomerSalesmans">
+        <PropertyRef Name="SalesmanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_MachineparkRental_Gn_User_Create">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="1" />
+    <End Type="HASELONEModel.Cm_MachineparkRental" Role="Cm_MachineparkRental" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_MachineparkRental">
+        <PropertyRef Name="CreateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_MachineparkRental_Gn_User_Delete">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_MachineparkRental" Role="Cm_MachineparkRental" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_MachineparkRental">
+        <PropertyRef Name="DeleteUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_MachineparkRental_Gn_User_Update">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Cm_MachineparkRental" Role="Cm_MachineparkRental" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cm_MachineparkRental">
+        <PropertyRef Name="UpdateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gn_UserRoles_Gn_Area">
+    <End Type="HASELONEModel.Gn_Area" Role="Gn_Area" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Gn_UserRoles" Role="Gn_UserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_Area">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gn_UserRoles">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_AreaCity_Cm_AreaCity">
+    <End Type="HASELONEModel.Gn_AreaCity" Role="Gn_AreaCity" Multiplicity="1" />
+    <End Type="HASELONEModel.Gn_AreaCity" Role="Gn_AreaCity1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_AreaCity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gn_AreaCity1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cm_AreaCityRegions_Cm_AreaCity">
+    <End Type="HASELONEModel.Gn_AreaCity" Role="Gn_AreaCity" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Gn_AreaCityRegions" Role="Gn_AreaCityRegions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_AreaCity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gn_AreaCityRegions">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gn_DepartmentRoles_Gn_Category">
+    <End Type="HASELONEModel.Gn_Category" Role="Gn_Category" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Gn_DepartmentRoles" Role="Gn_DepartmentRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gn_DepartmentRoles">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gn_Combos_Gn_ComboTypes">
+    <End Type="HASELONEModel.Gn_ComboTypes" Role="Gn_ComboTypes" Multiplicity="1" />
+    <End Type="HASELONEModel.Gn_Combos" Role="Gn_Combos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_ComboTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gn_Combos">
+        <PropertyRef Name="ComboTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gn_ContentManagement_Gn_ContentTypes">
+    <End Type="HASELONEModel.Gn_ContentTypes" Role="Gn_ContentTypes" Multiplicity="1" />
+    <End Type="HASELONEModel.Gn_ContentManagement" Role="Gn_ContentManagement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_ContentTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gn_ContentManagement">
+        <PropertyRef Name="ContentType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gn_DepartmentRoles_Gn_Department">
+    <End Type="HASELONEModel.Gn_Department" Role="Gn_Department" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Gn_DepartmentRoles" Role="Gn_DepartmentRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gn_DepartmentRoles">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gn_DepartmentRoles_Gn_Role">
+    <End Type="HASELONEModel.Gn_Role" Role="Gn_Role" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Gn_DepartmentRoles" Role="Gn_DepartmentRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gn_DepartmentRoles">
+        <PropertyRef Name="RuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gn_UserRoles_Gn_DepartmentRoles">
+    <End Type="HASELONEModel.Gn_DepartmentRoles" Role="Gn_DepartmentRoles" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Gn_UserRoles" Role="Gn_UserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_DepartmentRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gn_UserRoles">
+        <PropertyRef Name="DepartmentRuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gn_Notifications_Gn_ModulsAndMenus">
+    <End Type="HASELONEModel.Gn_ModulsAndMenus" Role="Gn_ModulsAndMenus" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Gn_Notifications" Role="Gn_Notifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_ModulsAndMenus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gn_Notifications">
+        <PropertyRef Name="ModulId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gn_Notifications_Gn_User">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="1" />
+    <End Type="HASELONEModel.Gn_Notifications" Role="Gn_Notifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gn_Notifications">
+        <PropertyRef Name="CreatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gn_Notifications_Gn_User2">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="1" />
+    <End Type="HASELONEModel.Gn_Notifications" Role="Gn_Notifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gn_Notifications">
+        <PropertyRef Name="TargetUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gn_UserRoles_Gn_User">
+    <End Type="HASELONEModel.Gn_User" Role="Gn_User" Multiplicity="0..1" />
+    <End Type="HASELONEModel.Gn_UserRoles" Role="Gn_UserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gn_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gn_UserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

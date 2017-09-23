@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4442639e494c40238c29b0e43a726447" Name="Diagram1" ZoomLevel="58">
+        <EntityTypeShape EntityType="DFSModel.HSL_CARI" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DFSModel.HSL_LOKASYON" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DFSModel.HSL_YETKILI" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DFSModel.HSV_CASABIT" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DFSModel.FK_HSL_LOKASYON_HSL_CARI" ManuallyRouted="false" />
+        <AssociationConnector Association="DFSModel.FK_HSL_YETKILI_HSL_CARI" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DFSModel.DCH_SEKTOR" Width="1.5" PointX="7.375" PointY="5.75" />
+        <EntityTypeShape EntityType="DFSModel.DFSUserSet" Width="1.5" PointX="5.375" PointY="5.75" />
+        <AssociationConnector Association="DFSModel.DFSUserDFSUser" />
+        <EntityTypeShape EntityType="DFSModel.DCH_KULLANICIBOLGE" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DFSModel.DCV_KULLANICIBOLGE" Width="1.5" PointX="7.375" PointY="10.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

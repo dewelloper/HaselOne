@@ -1,0 +1,7 @@
+﻿<div   ng-show="result && result.ResultType !='Hide'"  class='alert' ng-class="{'alert-warning':result.ResultType=='Warning', 'alert-error':result.ResultType=='Error', 'alert-success':result.ResultType=='Success','alert-info':result.ResultType=='Info'}">
+    <label>{{result.Message}}</label>
+    <br/>
+    <ul ng-if="result.ValidationMessages.length > 0">
+        <li ng-repeat='item in result.ValidationMessages' value="{{item.Value}}">{{item.Text}}</li>
+    </ul>
+</div>

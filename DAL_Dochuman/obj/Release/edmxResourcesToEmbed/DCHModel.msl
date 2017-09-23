@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DFSModelStoreContainer" CdmEntityContainer="DCHEntities">
+    <EntitySetMapping Name="HSL_CARI">
+      <EntityTypeMapping TypeName="DFSModel.HSL_CARI">
+        <MappingFragment StoreEntitySet="HSL_CARI">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="OneId" ColumnName="OneId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="WFState" ColumnName="WFState" />
+          <ScalarProperty Name="HSL_CARIKOD" ColumnName="HSL_CARIKOD" />
+          <ScalarProperty Name="HSL_VD" ColumnName="HSL_VD" />
+          <ScalarProperty Name="HSL_VN" ColumnName="HSL_VN" />
+          <ScalarProperty Name="HSL_CARIISIM" ColumnName="HSL_CARIISIM" />
+          <ScalarProperty Name="HSL_KISALTMA" ColumnName="HSL_KISALTMA" />
+          <ScalarProperty Name="HSL_FIRMA" ColumnName="HSL_FIRMA" />
+          <ScalarProperty Name="HSL_CARIKODO" ColumnName="HSL_CARIKODO" />
+          <ScalarProperty Name="HSL_CARIKODH" ColumnName="HSL_CARIKODH" />
+          <ScalarProperty Name="HSL_SATID" ColumnName="HSL_SATID" />
+          <ScalarProperty Name="HSL_SATID2" ColumnName="HSL_SATID2" />
+          <ScalarProperty Name="HSL_LOKASYON" ColumnName="HSL_LOKASYON" />
+          <ScalarProperty Name="HSL_CLASS" ColumnName="HSL_CLASS" />
+          <ScalarProperty Name="HSL_SEKTORID" ColumnName="HSL_SEKTORID" />
+          <ScalarProperty Name="HSL_SID" ColumnName="HSL_SID" />
+          <ScalarProperty Name="HSL_KID" ColumnName="HSL_KID" />
+          <ScalarProperty Name="HSL_WEB" ColumnName="HSL_WEB" />
+          <ScalarProperty Name="HSL_SSATID" ColumnName="HSL_SSATID" />
+          <ScalarProperty Name="HSL_SSATID2" ColumnName="HSL_SSATID2" />
+          <ScalarProperty Name="HSL_DURUM" ColumnName="HSL_DURUM" />
+          <ScalarProperty Name="HSL_ANACARI" ColumnName="HSL_ANACARI" />
+          <ScalarProperty Name="HSL_GRUP" ColumnName="HSL_GRUP" />
+          <ScalarProperty Name="HSL_MAKINESAY" ColumnName="HSL_MAKINESAY" />
+          <ScalarProperty Name="HSL_SATICI" ColumnName="HSL_SATICI" />
+          <ScalarProperty Name="HSL_TFORKLIFTSAYISI" ColumnName="HSL_TFORKLIFTSAYISI" />
+          <ScalarProperty Name="HSL_HFORKLIFTSAYISI" ColumnName="HSL_HFORKLIFTSAYISI" />
+          <ScalarProperty Name="HSL_SATICILINDE" ColumnName="HSL_SATICILINDE" />
+          <ScalarProperty Name="HSL_SATICICOMBILIFT" ColumnName="HSL_SATICICOMBILIFT" />
+          <ScalarProperty Name="HSL_SATICIMANLIFT" ColumnName="HSL_SATICIMANLIFT" />
+          <ScalarProperty Name="HSL_COMBILIFTSAYISI" ColumnName="HSL_COMBILIFTSAYISI" />
+          <ScalarProperty Name="HSL_MANLIFTSAYISI" ColumnName="HSL_MANLIFTSAYISI" />
+          <ScalarProperty Name="HSL_JLGSAYISI" ColumnName="HSL_JLGSAYISI" />
+          <ScalarProperty Name="HSL_FORKLIFTSAYISI" ColumnName="HSL_FORKLIFTSAYISI" />
+          <ScalarProperty Name="HSL_LINDESAYISI" ColumnName="HSL_LINDESAYISI" />
+          <ScalarProperty Name="HSL_ISMAKSAYISI" ColumnName="HSL_ISMAKSAYISI" />
+          <ScalarProperty Name="HSL_KOBELCOSAYISI" ColumnName="HSL_KOBELCOSAYISI" />
+          <ScalarProperty Name="HSL_TEREXSAYISI" ColumnName="HSL_TEREXSAYISI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HSL_LOKASYON">
+      <EntityTypeMapping TypeName="DFSModel.HSL_LOKASYON">
+        <MappingFragment StoreEntitySet="HSL_LOKASYON">
+          <ScalarProperty Name="OneId" ColumnName="OneId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="WFState" ColumnName="WFState" />
+          <ScalarProperty Name="LOK_ADI" ColumnName="LOK_ADI" />
+          <ScalarProperty Name="LOK_ADRES" ColumnName="LOK_ADRES" />
+          <ScalarProperty Name="LOK_IL" ColumnName="LOK_IL" />
+          <ScalarProperty Name="LOK_ILCE" ColumnName="LOK_ILCE" />
+          <ScalarProperty Name="MasterId" ColumnName="MasterId" />
+          <ScalarProperty Name="LOK_TEL" ColumnName="LOK_TEL" />
+          <ScalarProperty Name="LOK_FAX" ColumnName="LOK_FAX" />
+          <ScalarProperty Name="LOK_FAT" ColumnName="LOK_FAT" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HSL_YETKILI">
+      <EntityTypeMapping TypeName="DFSModel.HSL_YETKILI">
+        <MappingFragment StoreEntitySet="HSL_YETKILI">
+          <ScalarProperty Name="OneId" ColumnName="OneId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="WFState" ColumnName="WFState" />
+          <ScalarProperty Name="MasterId" ColumnName="MasterId" />
+          <ScalarProperty Name="YETKILI_ADI" ColumnName="YETKILI_ADI" />
+          <ScalarProperty Name="YETKILI_GSM" ColumnName="YETKILI_GSM" />
+          <ScalarProperty Name="YETKILI_TEL1" ColumnName="YETKILI_TEL1" />
+          <ScalarProperty Name="YETKILI_TEL2" ColumnName="YETKILI_TEL2" />
+          <ScalarProperty Name="YETKILI_FAX" ColumnName="YETKILI_FAX" />
+          <ScalarProperty Name="YETKILI_EMAIL" ColumnName="YETKILI_EMAIL" />
+          <ScalarProperty Name="YETKILI_UNVAN" ColumnName="YETKILI_UNVAN" />
+          <ScalarProperty Name="YETKILI_LOKID" ColumnName="YETKILI_LOKID" />
+          <ScalarProperty Name="YETKILI_NAKLIYE" ColumnName="YETKILI_NAKLIYE" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HSV_CASABIT">
+      <EntityTypeMapping TypeName="DFSModel.HSV_CASABIT">
+        <MappingFragment StoreEntitySet="HSV_CASABIT">
+          <ScalarProperty Name="SIRKET" ColumnName="SIRKET" />
+          <ScalarProperty Name="CARI_KOD" ColumnName="CARI_KOD" />
+          <ScalarProperty Name="CARI_TEL" ColumnName="CARI_TEL" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="CARI_ISIM" ColumnName="CARI_ISIM" />
+          <ScalarProperty Name="VERGI_DAIRESI" ColumnName="VERGI_DAIRESI" />
+          <ScalarProperty Name="VERGI_NUMARASI" ColumnName="VERGI_NUMARASI" />
+          <ScalarProperty Name="CARI_ADRES" ColumnName="CARI_ADRES" />
+          <ScalarProperty Name="CARI_IL" ColumnName="CARI_IL" />
+          <ScalarProperty Name="CARI_ILCE" ColumnName="CARI_ILCE" />
+          <ScalarProperty Name="VADE_GUNU" ColumnName="VADE_GUNU" />
+          <ScalarProperty Name="CKOD" ColumnName="CKOD" />
+          <ScalarProperty Name="KILIT" ColumnName="KILIT" />
+          <ScalarProperty Name="CM_BORCT" ColumnName="CM_BORCT" />
+          <ScalarProperty Name="CM_ALACT" ColumnName="CM_ALACT" />
+          <ScalarProperty Name="BAKIYE" ColumnName="BAKIYE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DCH_SEKTOR">
+      <EntityTypeMapping TypeName="DFSModel.DCH_SEKTOR">
+        <MappingFragment StoreEntitySet="DCH_SEKTOR">
+          <ScalarProperty Name="ALTSEKTOR" ColumnName="ALTSEKTOR" />
+          <ScalarProperty Name="SEKTOR" ColumnName="SEKTOR" />
+          <ScalarProperty Name="KOD" ColumnName="KOD" />
+          <ScalarProperty Name="GRUP" ColumnName="GRUP" />
+          <ScalarProperty Name="SEKTORACIKLAMA" ColumnName="SEKTORACIKLAMA" />
+          <ScalarProperty Name="WFState" ColumnName="WFState" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DFSUserSet">
+      <EntityTypeMapping TypeName="DFSModel.DFSUserSet">
+        <MappingFragment StoreEntitySet="DFSUserSet">
+          <ScalarProperty Name="OneId" ColumnName="OneId" />
+          <ScalarProperty Name="DocMngUser" ColumnName="DocMngUser" />
+          <ScalarProperty Name="FormUser" ColumnName="FormUser" />
+          <ScalarProperty Name="CustomKey" ColumnName="CustomKey" />
+          <ScalarProperty Name="CustomInfo" ColumnName="CustomInfo" />
+          <ScalarProperty Name="RunTimeAdmin" ColumnName="RunTimeAdmin" />
+          <ScalarProperty Name="DesignTimeAdmin" ColumnName="DesignTimeAdmin" />
+          <ScalarProperty Name="DFSGroupId" ColumnName="DFSGroupId" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="EMailAddress" ColumnName="EMailAddress" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+          <ScalarProperty Name="LastSyncTime" ColumnName="LastSyncTime" />
+          <ScalarProperty Name="LastLogonTime" ColumnName="LastLogonTime" />
+          <ScalarProperty Name="Locked" ColumnName="Locked" />
+          <ScalarProperty Name="WindowsName" ColumnName="WindowsName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DCH_KULLANICIBOLGE">
+      <EntityTypeMapping TypeName="DFSModel.DCH_KULLANICIBOLGE">
+        <MappingFragment StoreEntitySet="DCH_KULLANICIBOLGE">
+          <ScalarProperty Name="OneId" ColumnName="OneId" />
+          <ScalarProperty Name="BOLGEKAYITLARIGOREBILIR" ColumnName="BOLGEKAYITLARIGOREBILIR" />
+          <ScalarProperty Name="ZIYARETGOREBILIR" ColumnName="ZIYARETGOREBILIR" />
+          <ScalarProperty Name="ITHISKGORUR" ColumnName="ITHISKGORUR" />
+          <ScalarProperty Name="ISM_CARIONAY" ColumnName="ISM_CARIONAY" />
+          <ScalarProperty Name="FARKLILOKASYONSEVK" ColumnName="FARKLILOKASYONSEVK" />
+          <ScalarProperty Name="CARIGOREBILIR" ColumnName="CARIGOREBILIR" />
+          <ScalarProperty Name="TEKLIFGOREBILIR" ColumnName="TEKLIFGOREBILIR" />
+          <ScalarProperty Name="EFATURAGELENKAYITLAR" ColumnName="EFATURAGELENKAYITLAR" />
+          <ScalarProperty Name="ENKULID" ColumnName="ENKULID" />
+          <ScalarProperty Name="SATINALMATUMBOLGE" ColumnName="SATINALMATUMBOLGE" />
+          <ScalarProperty Name="SERBESTBOLGE" ColumnName="SERBESTBOLGE" />
+          <ScalarProperty Name="EFATURATUMKAYITLAR" ColumnName="EFATURATUMKAYITLAR" />
+          <ScalarProperty Name="SATINALMAONAYLAR" ColumnName="SATINALMAONAYLAR" />
+          <ScalarProperty Name="AKTIF" ColumnName="AKTIF" />
+          <ScalarProperty Name="SATICI" ColumnName="SATICI" />
+          <ScalarProperty Name="ANABOLGE" ColumnName="ANABOLGE" />
+          <ScalarProperty Name="PLASIYERKODU" ColumnName="PLASIYERKODU" />
+          <ScalarProperty Name="KIRASATICISECER" ColumnName="KIRASATICISECER" />
+          <ScalarProperty Name="KIRASEVKONAY2" ColumnName="KIRASEVKONAY2" />
+          <ScalarProperty Name="HAREKETEKRANI" ColumnName="HAREKETEKRANI" />
+          <ScalarProperty Name="KIRASEVKISLEYEBILIR" ColumnName="KIRASEVKISLEYEBILIR" />
+          <ScalarProperty Name="ASISTAN" ColumnName="ASISTAN" />
+          <ScalarProperty Name="SIPARISYETKIGRUP" ColumnName="SIPARISYETKIGRUP" />
+          <ScalarProperty Name="USER_FAX" ColumnName="USER_FAX" />
+          <ScalarProperty Name="USER_TEL" ColumnName="USER_TEL" />
+          <ScalarProperty Name="SOZLESMEFIRMA" ColumnName="SOZLESMEFIRMA" />
+          <ScalarProperty Name="RAPOR_YIL" ColumnName="RAPOR_YIL" />
+          <ScalarProperty Name="RAPOR_AY" ColumnName="RAPOR_AY" />
+          <ScalarProperty Name="SOZLESMEYETKI" ColumnName="SOZLESMEYETKI" />
+          <ScalarProperty Name="GRUP" ColumnName="GRUP" />
+          <ScalarProperty Name="DEPARTMAN" ColumnName="DEPARTMAN" />
+          <ScalarProperty Name="ITHALATISKONTOSUGORSUN" ColumnName="ITHALATISKONTOSUGORSUN" />
+          <ScalarProperty Name="BOLGE" ColumnName="BOLGE" />
+          <ScalarProperty Name="SUBEKODU" ColumnName="SUBEKODU" />
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="WFState" ColumnName="WFState" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DCV_KULLANICIBOLGE">
+      <EntityTypeMapping TypeName="DFSModel.DCV_KULLANICIBOLGE">
+        <MappingFragment StoreEntitySet="DCV_KULLANICIBOLGE">
+          <ScalarProperty Name="ENKULID" ColumnName="ENKULID" />
+          <ScalarProperty Name="SUBESEC" ColumnName="SUBESEC" />
+          <ScalarProperty Name="SUBEKODU" ColumnName="SUBEKODU" />
+          <ScalarProperty Name="SATICI" ColumnName="SATICI" />
+          <ScalarProperty Name="AKTIF" ColumnName="AKTIF" />
+          <ScalarProperty Name="PLASIYERKODU" ColumnName="PLASIYERKODU" />
+          <ScalarProperty Name="BOLGE_KS" ColumnName="BOLGE_KS" />
+          <ScalarProperty Name="DEPARTMAN" ColumnName="DEPARTMAN" />
+          <ScalarProperty Name="ANABOLGE" ColumnName="ANABOLGE" />
+          <ScalarProperty Name="BOLGE" ColumnName="BOLGE" />
+          <ScalarProperty Name="GRUP" ColumnName="GRUP" />
+          <ScalarProperty Name="SUBE" ColumnName="SUBE" />
+          <ScalarProperty Name="RunTimeAdmin" ColumnName="RunTimeAdmin" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="EMailAddress" ColumnName="EMailAddress" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="WindowsName" ColumnName="WindowsName" />
+          <ScalarProperty Name="KILIT" ColumnName="KILIT" />
+          <ScalarProperty Name="KULLANICI" ColumnName="KULLANICI" />
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="WFState" ColumnName="WFState" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

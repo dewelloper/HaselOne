@@ -1,0 +1,24 @@
+﻿<script type="text/ng-template" id="treeNodesRender.html">
+    <option ng-if="item[options.childField] == null || item[options.childField].length == 0" ng-repeat="item in item[options.childField]" value="{{ item[options.valueField] }}"
+            ng-bind-html="GetIndentText(item[options.textField],item[options.levelField]*2)" ng-selected="item[options.valueField] == ngModel"></option>
+    <option class="bold" ng-disabled="true" ng-if="item[options.childField] != null && item[options.childField].length > 0" ng-repeat="item in item[options.childField]"
+            ng-include="'treeNodesRender.html'" include-extract="GetIndentText(item[options.textField],item.TreeLevel*2)" value="{{ item[options.valueField] }}"></option>
+</script>
+<div class="input-group">
+    <select class="form-control" style="width:100%;" name="{{Name}}" ng-model="ngModel" ng-required="ngRequired" ng-disabled="!ngEnabled" convert-to-number>
+        <option value="">{{options.placeHolder}}</option>
+        <option ng-if="item[options.childField] == null || item[options.childField].length == 0" ng-repeat="item in options.data" value="{{ item[options.valueField] }}" ng-selected="item[options.valueField] == ngModel">
+            {{item[options.textField]}}
+        </option>
+
+        <optgroup label="{{item[options.textField]}}" ng-if="item[options.childField] != null && item[options.childField].length > 0" ng-include="'treeNodesRender.html'" ng-repeat="item in options.data"></optgroup>
+    </select>
+    <div class="input-group-btn">
+        <button type="button" ng-show="!options.IsLoading" ng-click="ngModel = options.AllowEmptyModel ? '' : ngModel" class="btn btn-default" ng-disabled="ngModel=='' || !ngEnabled || !options.AllowEmptyModel">
+            <i class="fa fa-trash"></i>
+        </button>
+        <span ng-show="options.IsLoading" class="btn btn-default">
+            <i class="fa fa-spinner fa-spin"></i>
+        </span>
+    </div>
+</div>

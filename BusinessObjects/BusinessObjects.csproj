@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6A659851-FF72-4EC8-BEA9-FB9AD3237A6D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessObjects</RootNamespace>
+    <AssemblyName>BusinessObjects</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HaselOne\DAL\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AreaWrapper.cs" />
+    <Compile Include="BaseWrapper.cs" />
+    <Compile Include="Base\Attributes.cs" />
+    <Compile Include="Base\OneMap.cs" />
+    <Compile Include="Base\StaticText\SText.cs" />
+    <Compile Include="CategoryWrapper.cs" />
+    <Compile Include="ChatMessageDetail.cs" />
+    <Compile Include="ChatUserDetail.cs" />
+    <Compile Include="ComboWrapper.cs" />
+    <Compile Include="CustomerFilter.cs" />
+    <Compile Include="CustomerInterviewsWrapper.cs" />
+    <Compile Include="CustomerRequestWrapper.cs" />
+    <Compile Include="CustomerWrapper.cs" />
+    <Compile Include="MachineparkMarkWrapper.cs" />
+    <Compile Include="MachineparkCategoryFilter.cs" />
+    <Compile Include="MachineparkMarkFilter .cs" />
+    <Compile Include="MachineModelFilter.cs" />
+    <Compile Include="LocationFilter.cs" />
+    <Compile Include="LocationWrapper.cs" />
+    <Compile Include="MachineModelWrapper.cs" />
+    <Compile Include="MachineparkCategoryWrapper.cs" />
+    <Compile Include="SalesmanFilter.cs" />
+    <Compile Include="MachineparkFilter.cs" />
+    <Compile Include="MachineparkWrapper.cs" />
+    <Compile Include="Filter.cs" />
+    <Compile Include="ReportFilter.cs" />
+    <Compile Include="PagedSource.cs" />
+    <Compile Include="RoleWrapper.cs" />
+    <Compile Include="SalesmanWraper.cs" />
+    <Compile Include="SectorWrapper.cs" />
+    <Compile Include="SegmentWrapper.cs" />
+    <Compile Include="TextValue.cs" />
+    <Compile Include="UserKnowledge.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YearFilter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{75E8D6C9-40EB-4AF6-BC08-3380ECB6E1A4}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resolvers\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

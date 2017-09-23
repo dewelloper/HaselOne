@@ -1,0 +1,939 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DFSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DCH_KULLANICIBOLGE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateUser" Type="int" />
+          <Property Name="UpdateUser" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="WFState" Type="tinyint" />
+          <Property Name="USERID" Type="int" />
+          <Property Name="SUBEKODU" Type="int" />
+          <Property Name="BOLGE" Type="nvarchar" MaxLength="50" />
+          <Property Name="ITHALATISKONTOSUGORSUN" Type="bit" />
+          <Property Name="DEPARTMAN" Type="nvarchar" MaxLength="50" />
+          <Property Name="GRUP" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOZLESMEYETKI" Type="bit" />
+          <Property Name="RAPOR_AY" Type="int" />
+          <Property Name="RAPOR_YIL" Type="int" />
+          <Property Name="SOZLESMEFIRMA" Type="bit" />
+          <Property Name="USER_TEL" Type="nvarchar" MaxLength="50" />
+          <Property Name="USER_FAX" Type="nvarchar" MaxLength="50" />
+          <Property Name="SIPARISYETKIGRUP" Type="nvarchar" MaxLength="50" />
+          <Property Name="ASISTAN" Type="bit" />
+          <Property Name="KIRASEVKISLEYEBILIR" Type="bit" />
+          <Property Name="HAREKETEKRANI" Type="bit" />
+          <Property Name="KIRASEVKONAY2" Type="bit" />
+          <Property Name="KIRASATICISECER" Type="bit" />
+          <Property Name="PLASIYERKODU" Type="nvarchar" MaxLength="50" />
+          <Property Name="ANABOLGE" Type="nvarchar" MaxLength="50" />
+          <Property Name="SATICI" Type="bit" />
+          <Property Name="AKTIF" Type="bit" />
+          <Property Name="SATINALMAONAYLAR" Type="bit" />
+          <Property Name="EFATURATUMKAYITLAR" Type="bit" />
+          <Property Name="SERBESTBOLGE" Type="bit" />
+          <Property Name="SATINALMATUMBOLGE" Type="bit" />
+          <Property Name="ENKULID" Type="int" />
+          <Property Name="EFATURAGELENKAYITLAR" Type="bit" />
+          <Property Name="TEKLIFGOREBILIR" Type="bit" />
+          <Property Name="CARIGOREBILIR" Type="bit" />
+          <Property Name="FARKLILOKASYONSEVK" Type="bit" />
+          <Property Name="ISM_CARIONAY" Type="bit" />
+          <Property Name="ITHISKGORUR" Type="bit" />
+          <Property Name="ZIYARETGOREBILIR" Type="bit" />
+          <Property Name="BOLGEKAYITLARIGOREBILIR" Type="bit" />
+          <Property Name="OneId" Type="int" />
+        </EntityType>
+        <EntityType Name="DCH_SEKTOR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateUser" Type="int" />
+          <Property Name="UpdateUser" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="WFState" Type="int" />
+          <Property Name="SEKTORACIKLAMA" Type="nvarchar" MaxLength="50" />
+          <Property Name="GRUP" Type="nvarchar" MaxLength="50" />
+          <Property Name="KOD" Type="nvarchar" MaxLength="50" />
+          <Property Name="SEKTOR" Type="nvarchar" MaxLength="100" />
+          <Property Name="ALTSEKTOR" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DFSUserSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="WindowsName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Locked" Type="tinyint" Nullable="false" />
+          <Property Name="LastLogonTime" Type="datetime" />
+          <Property Name="LastSyncTime" Type="datetime" />
+          <Property Name="ManagerId" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="EMailAddress" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="DFSGroupId" Type="int" />
+          <Property Name="DesignTimeAdmin" Type="tinyint" />
+          <Property Name="RunTimeAdmin" Type="tinyint" />
+          <Property Name="CustomInfo" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomKey" Type="int" />
+          <Property Name="FormUser" Type="tinyint" />
+          <Property Name="DocMngUser" Type="tinyint" />
+          <Property Name="OneId" Type="int" />
+        </EntityType>
+        <EntityType Name="HSL_CARI">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateUser" Type="int" />
+          <Property Name="UpdateUser" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="WFState" Type="tinyint" />
+          <Property Name="HSL_CARIKOD" Type="nvarchar" MaxLength="50" />
+          <Property Name="HSL_VD" Type="nvarchar" MaxLength="50" />
+          <Property Name="HSL_VN" Type="nvarchar" MaxLength="50" />
+          <Property Name="HSL_CARIISIM" Type="nvarchar" MaxLength="200" />
+          <Property Name="HSL_KISALTMA" Type="nvarchar" MaxLength="50" />
+          <Property Name="HSL_FIRMA" Type="nvarchar" MaxLength="50" />
+          <Property Name="HSL_CARIKODO" Type="nvarchar" MaxLength="50" />
+          <Property Name="HSL_CARIKODH" Type="nvarchar" MaxLength="50" />
+          <Property Name="HSL_SATID" Type="int" />
+          <Property Name="HSL_SATID2" Type="int" />
+          <Property Name="HSL_LOKASYON" Type="nvarchar" MaxLength="50" />
+          <Property Name="HSL_CLASS" Type="nvarchar" MaxLength="50" />
+          <Property Name="HSL_SEKTORID" Type="int" />
+          <Property Name="HSL_SID" Type="int" />
+          <Property Name="HSL_KID" Type="int" />
+          <Property Name="HSL_WEB" Type="nvarchar" MaxLength="50" />
+          <Property Name="HSL_SSATID" Type="int" />
+          <Property Name="HSL_SSATID2" Type="int" />
+          <Property Name="HSL_DURUM" Type="nvarchar" MaxLength="50" />
+          <Property Name="HSL_ANACARI" Type="bit" />
+          <Property Name="HSL_GRUP" Type="nvarchar" MaxLength="50" />
+          <Property Name="HSL_MAKINESAY" Type="int" />
+          <Property Name="HSL_SATICI" Type="int" />
+          <Property Name="HSL_TFORKLIFTSAYISI" Type="int" />
+          <Property Name="HSL_HFORKLIFTSAYISI" Type="int" />
+          <Property Name="HSL_SATICILINDE" Type="int" />
+          <Property Name="HSL_SATICICOMBILIFT" Type="int" />
+          <Property Name="HSL_SATICIMANLIFT" Type="int" />
+          <Property Name="HSL_COMBILIFTSAYISI" Type="int" />
+          <Property Name="HSL_MANLIFTSAYISI" Type="int" />
+          <Property Name="HSL_JLGSAYISI" Type="int" />
+          <Property Name="HSL_FORKLIFTSAYISI" Type="int" />
+          <Property Name="HSL_LINDESAYISI" Type="int" />
+          <Property Name="HSL_ISMAKSAYISI" Type="int" />
+          <Property Name="HSL_KOBELCOSAYISI" Type="int" />
+          <Property Name="HSL_TEREXSAYISI" Type="int" />
+          <Property Name="OneId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="HSL_LOKASYON">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateUser" Type="int" />
+          <Property Name="UpdateUser" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="WFState" Type="tinyint" />
+          <Property Name="LOK_ADI" Type="nvarchar" MaxLength="200" />
+          <Property Name="LOK_ADRES" Type="nvarchar" MaxLength="200" />
+          <Property Name="LOK_IL" Type="nvarchar" MaxLength="50" />
+          <Property Name="LOK_ILCE" Type="nvarchar" MaxLength="50" />
+          <Property Name="MasterId" Type="int" />
+          <Property Name="LOK_TEL" Type="nvarchar" MaxLength="50" />
+          <Property Name="LOK_FAX" Type="nvarchar" MaxLength="50" />
+          <Property Name="LOK_FAT" Type="bit" />
+          <Property Name="Longitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="Latitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="OneId" Type="int" />
+        </EntityType>
+        <EntityType Name="HSL_YETKILI">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateUser" Type="int" />
+          <Property Name="UpdateUser" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="WFState" Type="tinyint" />
+          <Property Name="MasterId" Type="int" />
+          <Property Name="YETKILI_ADI" Type="nvarchar" MaxLength="50" />
+          <Property Name="YETKILI_GSM" Type="nvarchar" MaxLength="10" />
+          <Property Name="YETKILI_TEL1" Type="nvarchar" MaxLength="10" />
+          <Property Name="YETKILI_TEL2" Type="nvarchar" MaxLength="10" />
+          <Property Name="YETKILI_FAX" Type="nvarchar" MaxLength="10" />
+          <Property Name="YETKILI_EMAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="YETKILI_UNVAN" Type="nvarchar" MaxLength="50" />
+          <Property Name="YETKILI_LOKID" Type="int" />
+          <Property Name="YETKILI_NAKLIYE" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="OneId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DFS.dbo.DCV_KULLANICIBOLGE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DCV_KULLANICIBOLGE">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="BOLGE_KS" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CreateUser" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateUser" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="WFState" Type="tinyint" />
+          <Property Name="USERID" Type="int" />
+          <Property Name="KULLANICI" Type="nvarchar" MaxLength="255" />
+          <Property Name="KILIT" Type="tinyint" />
+          <Property Name="WindowsName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="EMailAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="RunTimeAdmin" Type="tinyint" />
+          <Property Name="SUBE" Type="varchar" MaxLength="150" />
+          <Property Name="GRUP" Type="nvarchar" MaxLength="50" />
+          <Property Name="BOLGE" Type="nvarchar" MaxLength="50" />
+          <Property Name="ANABOLGE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DEPARTMAN" Type="nvarchar" MaxLength="50" />
+          <Property Name="BOLGE_KS" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="PLASIYERKODU" Type="nvarchar" MaxLength="50" />
+          <Property Name="AKTIF" Type="bit" />
+          <Property Name="SATICI" Type="bit" />
+          <Property Name="SUBEKODU" Type="int" />
+          <Property Name="SUBESEC" Type="nvarchar" MaxLength="21" />
+          <Property Name="ENKULID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DFS.dbo.HSV_CASABIT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="HSV_CASABIT">
+          <Key>
+            <PropertyRef Name="SIRKET" />
+            <PropertyRef Name="CKOD" />
+            <PropertyRef Name="KILIT" />
+          </Key>
+          <Property Name="SIRKET" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="CARI_KOD" Type="varchar" MaxLength="13" />
+          <Property Name="CARI_TEL" Type="varchar" MaxLength="20" />
+          <Property Name="FAX" Type="varchar" MaxLength="20" />
+          <Property Name="CARI_ISIM" Type="nvarchar" MaxLength="4000" />
+          <Property Name="VERGI_DAIRESI" Type="nvarchar" MaxLength="4000" />
+          <Property Name="VERGI_NUMARASI" Type="varchar" MaxLength="8000" />
+          <Property Name="CARI_ADRES" Type="nvarchar" MaxLength="4000" />
+          <Property Name="CARI_IL" Type="nvarchar" MaxLength="4000" />
+          <Property Name="CARI_ILCE" Type="nvarchar" MaxLength="4000" />
+          <Property Name="VADE_GUNU" Type="smallint" />
+          <Property Name="CKOD" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="KILIT" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="CM_BORCT" Type="decimal" Precision="28" Scale="8" />
+          <Property Name="CM_ALACT" Type="decimal" Precision="28" Scale="8" />
+          <Property Name="BAKIYE" Type="decimal" Precision="29" Scale="8" />
+        </EntityType>
+        <Association Name="DFSUserDFSUser">
+          <End Role="DFSUserSet" Type="Self.DFSUserSet" Multiplicity="0..1" />
+          <End Role="DFSUserSet1" Type="Self.DFSUserSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DFSUserSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DFSUserSet1">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HSL_LOKASYON_HSL_CARI">
+          <End Role="HSL_CARI" Type="Self.HSL_CARI" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HSL_LOKASYON" Type="Self.HSL_LOKASYON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HSL_CARI">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HSL_LOKASYON">
+              <PropertyRef Name="MasterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HSL_YETKILI_HSL_CARI">
+          <End Role="HSL_CARI" Type="Self.HSL_CARI" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HSL_YETKILI" Type="Self.HSL_YETKILI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HSL_CARI">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HSL_YETKILI">
+              <PropertyRef Name="MasterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DFSModelStoreContainer">
+          <EntitySet Name="DCH_KULLANICIBOLGE" EntityType="Self.DCH_KULLANICIBOLGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DCH_SEKTOR" EntityType="Self.DCH_SEKTOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DFSUserSet" EntityType="Self.DFSUserSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HSL_CARI" EntityType="Self.HSL_CARI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HSL_LOKASYON" EntityType="Self.HSL_LOKASYON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HSL_YETKILI" EntityType="Self.HSL_YETKILI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DCV_KULLANICIBOLGE" EntityType="Self.DCV_KULLANICIBOLGE" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DCV_KULLANICIBOLGE].[Id] AS [Id], 
+    [DCV_KULLANICIBOLGE].[CreateUser] AS [CreateUser], 
+    [DCV_KULLANICIBOLGE].[CreateDate] AS [CreateDate], 
+    [DCV_KULLANICIBOLGE].[UpdateUser] AS [UpdateUser], 
+    [DCV_KULLANICIBOLGE].[UpdateDate] AS [UpdateDate], 
+    [DCV_KULLANICIBOLGE].[WFState] AS [WFState], 
+    [DCV_KULLANICIBOLGE].[USERID] AS [USERID], 
+    [DCV_KULLANICIBOLGE].[KULLANICI] AS [KULLANICI], 
+    [DCV_KULLANICIBOLGE].[KILIT] AS [KILIT], 
+    [DCV_KULLANICIBOLGE].[WindowsName] AS [WindowsName], 
+    [DCV_KULLANICIBOLGE].[Title] AS [Title], 
+    [DCV_KULLANICIBOLGE].[EMailAddress] AS [EMailAddress], 
+    [DCV_KULLANICIBOLGE].[PhoneNumber] AS [PhoneNumber], 
+    [DCV_KULLANICIBOLGE].[RunTimeAdmin] AS [RunTimeAdmin], 
+    [DCV_KULLANICIBOLGE].[SUBE] AS [SUBE], 
+    [DCV_KULLANICIBOLGE].[GRUP] AS [GRUP], 
+    [DCV_KULLANICIBOLGE].[BOLGE] AS [BOLGE], 
+    [DCV_KULLANICIBOLGE].[ANABOLGE] AS [ANABOLGE], 
+    [DCV_KULLANICIBOLGE].[DEPARTMAN] AS [DEPARTMAN], 
+    [DCV_KULLANICIBOLGE].[BOLGE_KS] AS [BOLGE_KS], 
+    [DCV_KULLANICIBOLGE].[PLASIYERKODU] AS [PLASIYERKODU], 
+    [DCV_KULLANICIBOLGE].[AKTIF] AS [AKTIF], 
+    [DCV_KULLANICIBOLGE].[SATICI] AS [SATICI], 
+    [DCV_KULLANICIBOLGE].[SUBEKODU] AS [SUBEKODU], 
+    [DCV_KULLANICIBOLGE].[SUBESEC] AS [SUBESEC], 
+    [DCV_KULLANICIBOLGE].[ENKULID] AS [ENKULID]
+    FROM [dbo].[DCV_KULLANICIBOLGE] AS [DCV_KULLANICIBOLGE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="HSV_CASABIT" EntityType="Self.HSV_CASABIT" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [HSV_CASABIT].[SIRKET] AS [SIRKET], 
+    [HSV_CASABIT].[CARI_KOD] AS [CARI_KOD], 
+    [HSV_CASABIT].[CARI_TEL] AS [CARI_TEL], 
+    [HSV_CASABIT].[FAX] AS [FAX], 
+    [HSV_CASABIT].[CARI_ISIM] AS [CARI_ISIM], 
+    [HSV_CASABIT].[VERGI_DAIRESI] AS [VERGI_DAIRESI], 
+    [HSV_CASABIT].[VERGI_NUMARASI] AS [VERGI_NUMARASI], 
+    [HSV_CASABIT].[CARI_ADRES] AS [CARI_ADRES], 
+    [HSV_CASABIT].[CARI_IL] AS [CARI_IL], 
+    [HSV_CASABIT].[CARI_ILCE] AS [CARI_ILCE], 
+    [HSV_CASABIT].[VADE_GUNU] AS [VADE_GUNU], 
+    [HSV_CASABIT].[CKOD] AS [CKOD], 
+    [HSV_CASABIT].[KILIT] AS [KILIT], 
+    [HSV_CASABIT].[CM_BORCT] AS [CM_BORCT], 
+    [HSV_CASABIT].[CM_ALACT] AS [CM_ALACT], 
+    [HSV_CASABIT].[BAKIYE] AS [BAKIYE]
+    FROM [dbo].[HSV_CASABIT] AS [HSV_CASABIT]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="DFSUserDFSUser" Association="Self.DFSUserDFSUser">
+            <End Role="DFSUserSet" EntitySet="DFSUserSet" />
+            <End Role="DFSUserSet1" EntitySet="DFSUserSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HSL_LOKASYON_HSL_CARI" Association="Self.FK_HSL_LOKASYON_HSL_CARI">
+            <End Role="HSL_CARI" EntitySet="HSL_CARI" />
+            <End Role="HSL_LOKASYON" EntitySet="HSL_LOKASYON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HSL_YETKILI_HSL_CARI" Association="Self.FK_HSL_YETKILI_HSL_CARI">
+            <End Role="HSL_CARI" EntitySet="HSL_CARI" />
+            <End Role="HSL_YETKILI" EntitySet="HSL_YETKILI" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DFSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="HSL_CARI">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateUser" Type="Int32" />
+          <Property Name="UpdateUser" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="WFState" Type="Byte" />
+          <Property Name="HSL_CARIKOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HSL_VD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HSL_VN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HSL_CARIISIM" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="HSL_KISALTMA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HSL_FIRMA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HSL_CARIKODO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HSL_CARIKODH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HSL_SATID" Type="Int32" />
+          <Property Name="HSL_SATID2" Type="Int32" />
+          <Property Name="HSL_LOKASYON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HSL_CLASS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HSL_SEKTORID" Type="Int32" />
+          <Property Name="HSL_SID" Type="Int32" />
+          <Property Name="HSL_KID" Type="Int32" />
+          <Property Name="HSL_WEB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HSL_SSATID" Type="Int32" />
+          <Property Name="HSL_SSATID2" Type="Int32" />
+          <Property Name="HSL_DURUM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HSL_ANACARI" Type="Boolean" />
+          <Property Name="HSL_GRUP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HSL_MAKINESAY" Type="Int32" />
+          <Property Name="HSL_SATICI" Type="Int32" />
+          <Property Name="HSL_TFORKLIFTSAYISI" Type="Int32" />
+          <Property Name="HSL_HFORKLIFTSAYISI" Type="Int32" />
+          <Property Name="HSL_SATICILINDE" Type="Int32" />
+          <Property Name="HSL_SATICICOMBILIFT" Type="Int32" />
+          <Property Name="HSL_SATICIMANLIFT" Type="Int32" />
+          <Property Name="HSL_COMBILIFTSAYISI" Type="Int32" />
+          <Property Name="HSL_MANLIFTSAYISI" Type="Int32" />
+          <Property Name="HSL_JLGSAYISI" Type="Int32" />
+          <Property Name="HSL_FORKLIFTSAYISI" Type="Int32" />
+          <Property Name="HSL_LINDESAYISI" Type="Int32" />
+          <Property Name="HSL_ISMAKSAYISI" Type="Int32" />
+          <Property Name="HSL_KOBELCOSAYISI" Type="Int32" />
+          <Property Name="HSL_TEREXSAYISI" Type="Int32" />
+          <NavigationProperty Name="HSL_LOKASYON1" Relationship="Self.FK_HSL_LOKASYON_HSL_CARI" FromRole="HSL_CARI" ToRole="HSL_LOKASYON" />
+          <NavigationProperty Name="HSL_YETKILI" Relationship="Self.FK_HSL_YETKILI_HSL_CARI" FromRole="HSL_CARI" ToRole="HSL_YETKILI" />
+          <Property Name="OneId" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="HSL_LOKASYON">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateUser" Type="Int32" />
+          <Property Name="UpdateUser" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="WFState" Type="Byte" />
+          <Property Name="LOK_ADI" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LOK_ADRES" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LOK_IL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LOK_ILCE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MasterId" Type="Int32" />
+          <Property Name="LOK_TEL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LOK_FAX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LOK_FAT" Type="Boolean" />
+          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="HSL_CARI" Relationship="Self.FK_HSL_LOKASYON_HSL_CARI" FromRole="HSL_LOKASYON" ToRole="HSL_CARI" />
+          <Property Name="OneId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="HSL_YETKILI">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateUser" Type="Int32" />
+          <Property Name="UpdateUser" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="WFState" Type="Byte" />
+          <Property Name="MasterId" Type="Int32" />
+          <Property Name="YETKILI_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YETKILI_GSM" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="YETKILI_TEL1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="YETKILI_TEL2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="YETKILI_FAX" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="YETKILI_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YETKILI_UNVAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YETKILI_LOKID" Type="Int32" />
+          <Property Name="YETKILI_NAKLIYE" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="HSL_CARI" Relationship="Self.FK_HSL_YETKILI_HSL_CARI" FromRole="HSL_YETKILI" ToRole="HSL_CARI" />
+          <Property Name="OneId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="HSV_CASABIT">
+          <Key>
+            <PropertyRef Name="SIRKET" />
+            <PropertyRef Name="CKOD" />
+            <PropertyRef Name="KILIT" />
+          </Key>
+          <Property Name="SIRKET" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CARI_KOD" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="CARI_TEL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FAX" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CARI_ISIM" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="VERGI_DAIRESI" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="VERGI_NUMARASI" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="CARI_ADRES" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="CARI_IL" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="CARI_ILCE" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="VADE_GUNU" Type="Int16" />
+          <Property Name="CKOD" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KILIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CM_BORCT" Type="Decimal" Precision="28" Scale="8" />
+          <Property Name="CM_ALACT" Type="Decimal" Precision="28" Scale="8" />
+          <Property Name="BAKIYE" Type="Decimal" Precision="29" Scale="8" />
+        </EntityType>
+        <Association Name="FK_HSL_LOKASYON_HSL_CARI">
+          <End Role="HSL_CARI" Type="Self.HSL_CARI" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HSL_LOKASYON" Type="Self.HSL_LOKASYON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HSL_CARI">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HSL_LOKASYON">
+              <PropertyRef Name="MasterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HSL_YETKILI_HSL_CARI">
+          <End Role="HSL_CARI" Type="Self.HSL_CARI" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HSL_YETKILI" Type="Self.HSL_YETKILI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HSL_CARI">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HSL_YETKILI">
+              <PropertyRef Name="MasterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DCHEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HSL_CARI" EntityType="Self.HSL_CARI" />
+          <EntitySet Name="HSL_LOKASYON" EntityType="Self.HSL_LOKASYON" />
+          <EntitySet Name="HSL_YETKILI" EntityType="Self.HSL_YETKILI" />
+          <EntitySet Name="HSV_CASABIT" EntityType="Self.HSV_CASABIT" />
+          <AssociationSet Name="FK_HSL_LOKASYON_HSL_CARI" Association="Self.FK_HSL_LOKASYON_HSL_CARI">
+            <End Role="HSL_CARI" EntitySet="HSL_CARI" />
+            <End Role="HSL_LOKASYON" EntitySet="HSL_LOKASYON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HSL_YETKILI_HSL_CARI" Association="Self.FK_HSL_YETKILI_HSL_CARI">
+            <End Role="HSL_CARI" EntitySet="HSL_CARI" />
+            <End Role="HSL_YETKILI" EntitySet="HSL_YETKILI" />
+          </AssociationSet>
+          <EntitySet Name="DCH_SEKTOR" EntityType="DFSModel.DCH_SEKTOR" />
+          <EntitySet Name="DFSUserSet" EntityType="DFSModel.DFSUserSet" />
+          <AssociationSet Name="DFSUserDFSUser" Association="DFSModel.DFSUserDFSUser">
+            <End Role="DFSUserSet" EntitySet="DFSUserSet" />
+            <End Role="DFSUserSet1" EntitySet="DFSUserSet" />
+          </AssociationSet>
+          <EntitySet Name="DCH_KULLANICIBOLGE" EntityType="DFSModel.DCH_KULLANICIBOLGE" />
+          <EntitySet Name="DCV_KULLANICIBOLGE" EntityType="DFSModel.DCV_KULLANICIBOLGE" />
+        </EntityContainer>
+        <EntityType Name="DCH_SEKTOR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateUser" Type="Int32" />
+          <Property Name="UpdateUser" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="WFState" Type="Int32" />
+          <Property Name="SEKTORACIKLAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GRUP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KOD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SEKTOR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ALTSEKTOR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DFSUserSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="WindowsName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Locked" Type="Byte" Nullable="false" />
+          <Property Name="LastLogonTime" Type="DateTime" Precision="3" />
+          <Property Name="LastSyncTime" Type="DateTime" Precision="3" />
+          <Property Name="ManagerId" Type="Int32" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EMailAddress" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DFSGroupId" Type="Int32" />
+          <Property Name="DesignTimeAdmin" Type="Byte" />
+          <Property Name="RunTimeAdmin" Type="Byte" />
+          <Property Name="CustomInfo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CustomKey" Type="Int32" />
+          <Property Name="FormUser" Type="Byte" />
+          <Property Name="DocMngUser" Type="Byte" />
+          <NavigationProperty Name="DFSUserSet1" Relationship="DFSModel.DFSUserDFSUser" FromRole="DFSUserSet" ToRole="DFSUserSet1" />
+          <NavigationProperty Name="DFSUserSet2" Relationship="DFSModel.DFSUserDFSUser" FromRole="DFSUserSet1" ToRole="DFSUserSet" />
+          <Property Name="OneId" Type="Int32" />
+        </EntityType>
+        <Association Name="DFSUserDFSUser">
+          <End Type="DFSModel.DFSUserSet" Role="DFSUserSet" Multiplicity="0..1" />
+          <End Type="DFSModel.DFSUserSet" Role="DFSUserSet1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DFSUserSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DFSUserSet1">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DCH_KULLANICIBOLGE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateUser" Type="Int32" />
+          <Property Name="UpdateUser" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="WFState" Type="Byte" />
+          <Property Name="USERID" Type="Int32" />
+          <Property Name="SUBEKODU" Type="Int32" />
+          <Property Name="BOLGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ITHALATISKONTOSUGORSUN" Type="Boolean" />
+          <Property Name="DEPARTMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GRUP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOZLESMEYETKI" Type="Boolean" />
+          <Property Name="RAPOR_AY" Type="Int32" />
+          <Property Name="RAPOR_YIL" Type="Int32" />
+          <Property Name="SOZLESMEFIRMA" Type="Boolean" />
+          <Property Name="USER_TEL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USER_FAX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SIPARISYETKIGRUP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ASISTAN" Type="Boolean" />
+          <Property Name="KIRASEVKISLEYEBILIR" Type="Boolean" />
+          <Property Name="HAREKETEKRANI" Type="Boolean" />
+          <Property Name="KIRASEVKONAY2" Type="Boolean" />
+          <Property Name="KIRASATICISECER" Type="Boolean" />
+          <Property Name="PLASIYERKODU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ANABOLGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SATICI" Type="Boolean" />
+          <Property Name="AKTIF" Type="Boolean" />
+          <Property Name="SATINALMAONAYLAR" Type="Boolean" />
+          <Property Name="EFATURATUMKAYITLAR" Type="Boolean" />
+          <Property Name="SERBESTBOLGE" Type="Boolean" />
+          <Property Name="SATINALMATUMBOLGE" Type="Boolean" />
+          <Property Name="ENKULID" Type="Int32" />
+          <Property Name="EFATURAGELENKAYITLAR" Type="Boolean" />
+          <Property Name="TEKLIFGOREBILIR" Type="Boolean" />
+          <Property Name="CARIGOREBILIR" Type="Boolean" />
+          <Property Name="FARKLILOKASYONSEVK" Type="Boolean" />
+          <Property Name="ISM_CARIONAY" Type="Boolean" />
+          <Property Name="ITHISKGORUR" Type="Boolean" />
+          <Property Name="ZIYARETGOREBILIR" Type="Boolean" />
+          <Property Name="BOLGEKAYITLARIGOREBILIR" Type="Boolean" />
+          <Property Name="OneId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DCV_KULLANICIBOLGE">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="BOLGE_KS" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CreateUser" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUser" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="WFState" Type="Byte" />
+          <Property Name="USERID" Type="Int32" />
+          <Property Name="KULLANICI" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="KILIT" Type="Byte" />
+          <Property Name="WindowsName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EMailAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RunTimeAdmin" Type="Byte" />
+          <Property Name="SUBE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="GRUP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BOLGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ANABOLGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DEPARTMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BOLGE_KS" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="PLASIYERKODU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AKTIF" Type="Boolean" />
+          <Property Name="SATICI" Type="Boolean" />
+          <Property Name="SUBEKODU" Type="Int32" />
+          <Property Name="SUBESEC" Type="String" MaxLength="21" FixedLength="false" Unicode="true" />
+          <Property Name="ENKULID" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DFSModelStoreContainer" CdmEntityContainer="DCHEntities">
+          <EntitySetMapping Name="HSL_CARI">
+            <EntityTypeMapping TypeName="DFSModel.HSL_CARI">
+              <MappingFragment StoreEntitySet="HSL_CARI">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="OneId" ColumnName="OneId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="WFState" ColumnName="WFState" />
+                <ScalarProperty Name="HSL_CARIKOD" ColumnName="HSL_CARIKOD" />
+                <ScalarProperty Name="HSL_VD" ColumnName="HSL_VD" />
+                <ScalarProperty Name="HSL_VN" ColumnName="HSL_VN" />
+                <ScalarProperty Name="HSL_CARIISIM" ColumnName="HSL_CARIISIM" />
+                <ScalarProperty Name="HSL_KISALTMA" ColumnName="HSL_KISALTMA" />
+                <ScalarProperty Name="HSL_FIRMA" ColumnName="HSL_FIRMA" />
+                <ScalarProperty Name="HSL_CARIKODO" ColumnName="HSL_CARIKODO" />
+                <ScalarProperty Name="HSL_CARIKODH" ColumnName="HSL_CARIKODH" />
+                <ScalarProperty Name="HSL_SATID" ColumnName="HSL_SATID" />
+                <ScalarProperty Name="HSL_SATID2" ColumnName="HSL_SATID2" />
+                <ScalarProperty Name="HSL_LOKASYON" ColumnName="HSL_LOKASYON" />
+                <ScalarProperty Name="HSL_CLASS" ColumnName="HSL_CLASS" />
+                <ScalarProperty Name="HSL_SEKTORID" ColumnName="HSL_SEKTORID" />
+                <ScalarProperty Name="HSL_SID" ColumnName="HSL_SID" />
+                <ScalarProperty Name="HSL_KID" ColumnName="HSL_KID" />
+                <ScalarProperty Name="HSL_WEB" ColumnName="HSL_WEB" />
+                <ScalarProperty Name="HSL_SSATID" ColumnName="HSL_SSATID" />
+                <ScalarProperty Name="HSL_SSATID2" ColumnName="HSL_SSATID2" />
+                <ScalarProperty Name="HSL_DURUM" ColumnName="HSL_DURUM" />
+                <ScalarProperty Name="HSL_ANACARI" ColumnName="HSL_ANACARI" />
+                <ScalarProperty Name="HSL_GRUP" ColumnName="HSL_GRUP" />
+                <ScalarProperty Name="HSL_MAKINESAY" ColumnName="HSL_MAKINESAY" />
+                <ScalarProperty Name="HSL_SATICI" ColumnName="HSL_SATICI" />
+                <ScalarProperty Name="HSL_TFORKLIFTSAYISI" ColumnName="HSL_TFORKLIFTSAYISI" />
+                <ScalarProperty Name="HSL_HFORKLIFTSAYISI" ColumnName="HSL_HFORKLIFTSAYISI" />
+                <ScalarProperty Name="HSL_SATICILINDE" ColumnName="HSL_SATICILINDE" />
+                <ScalarProperty Name="HSL_SATICICOMBILIFT" ColumnName="HSL_SATICICOMBILIFT" />
+                <ScalarProperty Name="HSL_SATICIMANLIFT" ColumnName="HSL_SATICIMANLIFT" />
+                <ScalarProperty Name="HSL_COMBILIFTSAYISI" ColumnName="HSL_COMBILIFTSAYISI" />
+                <ScalarProperty Name="HSL_MANLIFTSAYISI" ColumnName="HSL_MANLIFTSAYISI" />
+                <ScalarProperty Name="HSL_JLGSAYISI" ColumnName="HSL_JLGSAYISI" />
+                <ScalarProperty Name="HSL_FORKLIFTSAYISI" ColumnName="HSL_FORKLIFTSAYISI" />
+                <ScalarProperty Name="HSL_LINDESAYISI" ColumnName="HSL_LINDESAYISI" />
+                <ScalarProperty Name="HSL_ISMAKSAYISI" ColumnName="HSL_ISMAKSAYISI" />
+                <ScalarProperty Name="HSL_KOBELCOSAYISI" ColumnName="HSL_KOBELCOSAYISI" />
+                <ScalarProperty Name="HSL_TEREXSAYISI" ColumnName="HSL_TEREXSAYISI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HSL_LOKASYON">
+            <EntityTypeMapping TypeName="DFSModel.HSL_LOKASYON">
+              <MappingFragment StoreEntitySet="HSL_LOKASYON">
+                <ScalarProperty Name="OneId" ColumnName="OneId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="WFState" ColumnName="WFState" />
+                <ScalarProperty Name="LOK_ADI" ColumnName="LOK_ADI" />
+                <ScalarProperty Name="LOK_ADRES" ColumnName="LOK_ADRES" />
+                <ScalarProperty Name="LOK_IL" ColumnName="LOK_IL" />
+                <ScalarProperty Name="LOK_ILCE" ColumnName="LOK_ILCE" />
+                <ScalarProperty Name="MasterId" ColumnName="MasterId" />
+                <ScalarProperty Name="LOK_TEL" ColumnName="LOK_TEL" />
+                <ScalarProperty Name="LOK_FAX" ColumnName="LOK_FAX" />
+                <ScalarProperty Name="LOK_FAT" ColumnName="LOK_FAT" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HSL_YETKILI">
+            <EntityTypeMapping TypeName="DFSModel.HSL_YETKILI">
+              <MappingFragment StoreEntitySet="HSL_YETKILI">
+                <ScalarProperty Name="OneId" ColumnName="OneId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="WFState" ColumnName="WFState" />
+                <ScalarProperty Name="MasterId" ColumnName="MasterId" />
+                <ScalarProperty Name="YETKILI_ADI" ColumnName="YETKILI_ADI" />
+                <ScalarProperty Name="YETKILI_GSM" ColumnName="YETKILI_GSM" />
+                <ScalarProperty Name="YETKILI_TEL1" ColumnName="YETKILI_TEL1" />
+                <ScalarProperty Name="YETKILI_TEL2" ColumnName="YETKILI_TEL2" />
+                <ScalarProperty Name="YETKILI_FAX" ColumnName="YETKILI_FAX" />
+                <ScalarProperty Name="YETKILI_EMAIL" ColumnName="YETKILI_EMAIL" />
+                <ScalarProperty Name="YETKILI_UNVAN" ColumnName="YETKILI_UNVAN" />
+                <ScalarProperty Name="YETKILI_LOKID" ColumnName="YETKILI_LOKID" />
+                <ScalarProperty Name="YETKILI_NAKLIYE" ColumnName="YETKILI_NAKLIYE" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HSV_CASABIT">
+            <EntityTypeMapping TypeName="DFSModel.HSV_CASABIT">
+              <MappingFragment StoreEntitySet="HSV_CASABIT">
+                <ScalarProperty Name="SIRKET" ColumnName="SIRKET" />
+                <ScalarProperty Name="CARI_KOD" ColumnName="CARI_KOD" />
+                <ScalarProperty Name="CARI_TEL" ColumnName="CARI_TEL" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="CARI_ISIM" ColumnName="CARI_ISIM" />
+                <ScalarProperty Name="VERGI_DAIRESI" ColumnName="VERGI_DAIRESI" />
+                <ScalarProperty Name="VERGI_NUMARASI" ColumnName="VERGI_NUMARASI" />
+                <ScalarProperty Name="CARI_ADRES" ColumnName="CARI_ADRES" />
+                <ScalarProperty Name="CARI_IL" ColumnName="CARI_IL" />
+                <ScalarProperty Name="CARI_ILCE" ColumnName="CARI_ILCE" />
+                <ScalarProperty Name="VADE_GUNU" ColumnName="VADE_GUNU" />
+                <ScalarProperty Name="CKOD" ColumnName="CKOD" />
+                <ScalarProperty Name="KILIT" ColumnName="KILIT" />
+                <ScalarProperty Name="CM_BORCT" ColumnName="CM_BORCT" />
+                <ScalarProperty Name="CM_ALACT" ColumnName="CM_ALACT" />
+                <ScalarProperty Name="BAKIYE" ColumnName="BAKIYE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DCH_SEKTOR">
+            <EntityTypeMapping TypeName="DFSModel.DCH_SEKTOR">
+              <MappingFragment StoreEntitySet="DCH_SEKTOR">
+                <ScalarProperty Name="ALTSEKTOR" ColumnName="ALTSEKTOR" />
+                <ScalarProperty Name="SEKTOR" ColumnName="SEKTOR" />
+                <ScalarProperty Name="KOD" ColumnName="KOD" />
+                <ScalarProperty Name="GRUP" ColumnName="GRUP" />
+                <ScalarProperty Name="SEKTORACIKLAMA" ColumnName="SEKTORACIKLAMA" />
+                <ScalarProperty Name="WFState" ColumnName="WFState" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DFSUserSet">
+            <EntityTypeMapping TypeName="DFSModel.DFSUserSet">
+              <MappingFragment StoreEntitySet="DFSUserSet">
+                <ScalarProperty Name="OneId" ColumnName="OneId" />
+                <ScalarProperty Name="DocMngUser" ColumnName="DocMngUser" />
+                <ScalarProperty Name="FormUser" ColumnName="FormUser" />
+                <ScalarProperty Name="CustomKey" ColumnName="CustomKey" />
+                <ScalarProperty Name="CustomInfo" ColumnName="CustomInfo" />
+                <ScalarProperty Name="RunTimeAdmin" ColumnName="RunTimeAdmin" />
+                <ScalarProperty Name="DesignTimeAdmin" ColumnName="DesignTimeAdmin" />
+                <ScalarProperty Name="DFSGroupId" ColumnName="DFSGroupId" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EMailAddress" ColumnName="EMailAddress" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+                <ScalarProperty Name="LastSyncTime" ColumnName="LastSyncTime" />
+                <ScalarProperty Name="LastLogonTime" ColumnName="LastLogonTime" />
+                <ScalarProperty Name="Locked" ColumnName="Locked" />
+                <ScalarProperty Name="WindowsName" ColumnName="WindowsName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DCH_KULLANICIBOLGE">
+            <EntityTypeMapping TypeName="DFSModel.DCH_KULLANICIBOLGE">
+              <MappingFragment StoreEntitySet="DCH_KULLANICIBOLGE">
+                <ScalarProperty Name="OneId" ColumnName="OneId" />
+                <ScalarProperty Name="BOLGEKAYITLARIGOREBILIR" ColumnName="BOLGEKAYITLARIGOREBILIR" />
+                <ScalarProperty Name="ZIYARETGOREBILIR" ColumnName="ZIYARETGOREBILIR" />
+                <ScalarProperty Name="ITHISKGORUR" ColumnName="ITHISKGORUR" />
+                <ScalarProperty Name="ISM_CARIONAY" ColumnName="ISM_CARIONAY" />
+                <ScalarProperty Name="FARKLILOKASYONSEVK" ColumnName="FARKLILOKASYONSEVK" />
+                <ScalarProperty Name="CARIGOREBILIR" ColumnName="CARIGOREBILIR" />
+                <ScalarProperty Name="TEKLIFGOREBILIR" ColumnName="TEKLIFGOREBILIR" />
+                <ScalarProperty Name="EFATURAGELENKAYITLAR" ColumnName="EFATURAGELENKAYITLAR" />
+                <ScalarProperty Name="ENKULID" ColumnName="ENKULID" />
+                <ScalarProperty Name="SATINALMATUMBOLGE" ColumnName="SATINALMATUMBOLGE" />
+                <ScalarProperty Name="SERBESTBOLGE" ColumnName="SERBESTBOLGE" />
+                <ScalarProperty Name="EFATURATUMKAYITLAR" ColumnName="EFATURATUMKAYITLAR" />
+                <ScalarProperty Name="SATINALMAONAYLAR" ColumnName="SATINALMAONAYLAR" />
+                <ScalarProperty Name="AKTIF" ColumnName="AKTIF" />
+                <ScalarProperty Name="SATICI" ColumnName="SATICI" />
+                <ScalarProperty Name="ANABOLGE" ColumnName="ANABOLGE" />
+                <ScalarProperty Name="PLASIYERKODU" ColumnName="PLASIYERKODU" />
+                <ScalarProperty Name="KIRASATICISECER" ColumnName="KIRASATICISECER" />
+                <ScalarProperty Name="KIRASEVKONAY2" ColumnName="KIRASEVKONAY2" />
+                <ScalarProperty Name="HAREKETEKRANI" ColumnName="HAREKETEKRANI" />
+                <ScalarProperty Name="KIRASEVKISLEYEBILIR" ColumnName="KIRASEVKISLEYEBILIR" />
+                <ScalarProperty Name="ASISTAN" ColumnName="ASISTAN" />
+                <ScalarProperty Name="SIPARISYETKIGRUP" ColumnName="SIPARISYETKIGRUP" />
+                <ScalarProperty Name="USER_FAX" ColumnName="USER_FAX" />
+                <ScalarProperty Name="USER_TEL" ColumnName="USER_TEL" />
+                <ScalarProperty Name="SOZLESMEFIRMA" ColumnName="SOZLESMEFIRMA" />
+                <ScalarProperty Name="RAPOR_YIL" ColumnName="RAPOR_YIL" />
+                <ScalarProperty Name="RAPOR_AY" ColumnName="RAPOR_AY" />
+                <ScalarProperty Name="SOZLESMEYETKI" ColumnName="SOZLESMEYETKI" />
+                <ScalarProperty Name="GRUP" ColumnName="GRUP" />
+                <ScalarProperty Name="DEPARTMAN" ColumnName="DEPARTMAN" />
+                <ScalarProperty Name="ITHALATISKONTOSUGORSUN" ColumnName="ITHALATISKONTOSUGORSUN" />
+                <ScalarProperty Name="BOLGE" ColumnName="BOLGE" />
+                <ScalarProperty Name="SUBEKODU" ColumnName="SUBEKODU" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="WFState" ColumnName="WFState" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DCV_KULLANICIBOLGE">
+            <EntityTypeMapping TypeName="DFSModel.DCV_KULLANICIBOLGE">
+              <MappingFragment StoreEntitySet="DCV_KULLANICIBOLGE">
+                <ScalarProperty Name="ENKULID" ColumnName="ENKULID" />
+                <ScalarProperty Name="SUBESEC" ColumnName="SUBESEC" />
+                <ScalarProperty Name="SUBEKODU" ColumnName="SUBEKODU" />
+                <ScalarProperty Name="SATICI" ColumnName="SATICI" />
+                <ScalarProperty Name="AKTIF" ColumnName="AKTIF" />
+                <ScalarProperty Name="PLASIYERKODU" ColumnName="PLASIYERKODU" />
+                <ScalarProperty Name="BOLGE_KS" ColumnName="BOLGE_KS" />
+                <ScalarProperty Name="DEPARTMAN" ColumnName="DEPARTMAN" />
+                <ScalarProperty Name="ANABOLGE" ColumnName="ANABOLGE" />
+                <ScalarProperty Name="BOLGE" ColumnName="BOLGE" />
+                <ScalarProperty Name="GRUP" ColumnName="GRUP" />
+                <ScalarProperty Name="SUBE" ColumnName="SUBE" />
+                <ScalarProperty Name="RunTimeAdmin" ColumnName="RunTimeAdmin" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EMailAddress" ColumnName="EMailAddress" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="WindowsName" ColumnName="WindowsName" />
+                <ScalarProperty Name="KILIT" ColumnName="KILIT" />
+                <ScalarProperty Name="KULLANICI" ColumnName="KULLANICI" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="WFState" ColumnName="WFState" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

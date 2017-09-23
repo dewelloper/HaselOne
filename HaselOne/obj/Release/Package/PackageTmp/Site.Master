@@ -1,0 +1,951 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="HaselOne.SiteMaster" %>
+
+<%@ Import Namespace="System.Security.Claims" %>
+<%@ Import Namespace="HaselOne" %>
+
+<!DOCTYPE html>
+<html lang="tr" ng-app="HaselApp">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>Hasel Crm</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Hasel CRM" name="description" />
+    <meta content="Hasel İstif Makinaları San. ve Tic. A.Ş." name="author" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="startup_scripts" runat="server">
+    </asp:ContentPlaceHolder>
+    <%: Styles.Render("~/bundles/css/devexpress")  %>
+    <%: Styles.Render("~/bundles/css/global")  %>
+    <%: Styles.Render("~/bundles/css/pageLevel")  %>
+    <%: Styles.Render("~/bundles/css/theme")  %>
+    <%: Styles.Render("~/bundles/css/layout")  %>
+    <%: Scripts.Render("~/bundles/js/global")  %>
+    <%: Scripts.Render("~/bundles/js/angular") %>
+    <%: Scripts.Render("~/bundles/js/angularLibs") %>
+    <%: Scripts.Render("~/bundles/js/devexpress") %>
+    <%: Scripts.Render("~/bundles/js/layout") %>
+
+    <link rel="shortcut icon" href="favicon.ico?v=1" />
+</head>
+
+<body onclick="clicked=true;" ng-controller="masterController" ng-cloak class="page-sidebar-closed">
+   
+    <form runat="server">
+        <asp:ScriptManager runat="server" ID="ScriptManager1" EnablePartialRendering="true"></asp:ScriptManager>
+
+        <!-- END CORE PLUGINS -->
+        <asp:HiddenField ID="hdnUserId" runat="server" />
+        <asp:HiddenField ID="hdnTargetChatUserId" runat="server" />
+
+        <div class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-sidebar-closed">
+            <%--page-header-fixed page-sidebar-closed-hide-logo page-content-white--%>
+            <div class="page-wrapper">
+                <!-- BEGIN HEADER -->
+                <div class="page-header navbar navbar-fixed-top">
+                    <!-- BEGIN HEADER INNER -->
+                    <div class="page-header-inner ">
+                        <!-- BEGIN LOGO -->
+                        <div class="page-logo">
+                            <a href="Moduls/Generals/Default.Aspx">
+                                <%#CurrentUser.CurrentUserId%>
+                                <img style="display: none;" src="" alt="logo" class="logo-default" style="margin-top: 5px !important;" />
+                            </a>
+                            <div class="menu-toggler sidebar-toggler">
+                                <span></span>
+                            </div>
+                        </div>
+                        <!-- END LOGO -->
+                        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span></span>
+                        </a>
+                        <!-- END RESPONSIVE MENU TOGGLER -->
+                        <!-- BEGIN TOP NAVIGATION MENU -->
+                        <div class="top-menu">
+                            <ul class="nav navbar-nav pull-right">
+                                <!-- BEGIN NOTIFICATION DROPDOWN -->
+                                <!-- DOC: Apply "dropdown-dark" class after "dropdown-extended" to change the dropdown styte -->
+                                <!-- DOC: Apply "dropdown-hoverable" class after below "dropdown" and remove data-toggle="dropdown" data-hover="dropdown" data-close-others="true" attributes to enable hover dropdown mode -->
+                                <!-- DOC: Remove "dropdown-hoverable" and add data-toggle="dropdown" data-hover="dropdown" data-close-others="true" attributes to the below A element with dropdown-toggle class -->
+                                <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+                                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                        <i class="icon-bell"></i>
+                                        <span class="badge badge-default">7 </span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="external">
+                                            <h3>
+                                                <span class="bold">12 pending</span> notifications</h3>
+                                            <a href="page_user_profile_1.html">view all</a>
+                                        </li>
+                                        <li>
+                                            <ul id="ulNot" class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <span class="time">just now</span>
+                                                        <span class="details">
+                                                            <span class="label label-sm label-icon label-success">
+                                                                <i class="fa fa-plus"></i>
+                                                            </span>New user registered. </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- END NOTIFICATION DROPDOWN -->
+                                <!-- BEGIN INBOX DROPDOWN -->
+                                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                                <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+                                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                        <i class="icon-envelope-open"></i>
+                                        <span class="badge badge-default">4 </span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="external">
+                                            <h3>You have
+                                            <span class="bold">7 New</span> Messages</h3>
+                                            <a href="app_inbox.html">view all</a>
+                                        </li>
+                                        <li>
+                                            <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="photo">
+                                                            <img src="/Content/Images/media/users/avatar2.jpg" class="img-circle" alt="">
+                                                        </span>
+                                                        <span class="subject">
+                                                            <span class="from">Lisa Wong </span>
+                                                            <span class="time">Just Now </span>
+                                                        </span>
+                                                        <span class="message">Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="photo">
+                                                            <img src="/Content/Images/media/users/avatar3.jpg" class="img-circle" alt="">
+                                                        </span>
+                                                        <span class="subject">
+                                                            <span class="from">Richard Doe </span>
+                                                            <span class="time">16 mins </span>
+                                                        </span>
+                                                        <span class="message">Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="photo">
+                                                            <img src="/Content/Images/media/users/avatar1.jpg" class="img-circle" alt="">
+                                                        </span>
+                                                        <span class="subject">
+                                                            <span class="from">Bob Nilson </span>
+                                                            <span class="time">2 hrs </span>
+                                                        </span>
+                                                        <span class="message">Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="photo">
+                                                            <img src="/Content/Images/media/users/avatar2.jpg" class="img-circle" alt="">
+                                                        </span>
+                                                        <span class="subject">
+                                                            <span class="from">Lisa Wong </span>
+                                                            <span class="time">40 mins </span>
+                                                        </span>
+                                                        <span class="message">Vivamus sed auctor 40% nibh congue nibh... </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="photo">
+                                                            <img src="/Content/Images/media/users/avatar3.jpg" class="img-circle" alt="">
+                                                        </span>
+                                                        <span class="subject">
+                                                            <span class="from">Richard Doe </span>
+                                                            <span class="time">46 mins </span>
+                                                        </span>
+                                                        <span class="message">Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- END INBOX DROPDOWN -->
+                                <!-- BEGIN TODO DROPDOWN -->
+                                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                                <li class="dropdown dropdown-extended dropdown-tasks" id="header_task_bar">
+                                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                        <i class="icon-calendar"></i>
+                                        <span class="badge badge-default">3 </span>
+                                    </a>
+                                    <ul class="dropdown-menu extended tasks">
+                                        <li class="external">
+                                            <h3>You have
+                                            <span class="bold">12 pending</span> tasks</h3>
+                                            <a href="app_todo.html">view all</a>
+                                        </li>
+                                        <li>
+                                            <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <span class="task">
+                                                            <span class="desc">New release v1.2 </span>
+                                                            <span class="percent">30%</span>
+                                                        </span>
+                                                        <span class="progress">
+                                                            <span style="width: 40%;" class="progress-bar progress-bar-success" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                                                                <span class="sr-only">40% Complete</span>
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <span class="task">
+                                                            <span class="desc">Application deployment</span>
+                                                            <span class="percent">65%</span>
+                                                        </span>
+                                                        <span class="progress">
+                                                            <span style="width: 65%;" class="progress-bar progress-bar-danger" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+                                                                <span class="sr-only">65% Complete</span>
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <span class="task">
+                                                            <span class="desc">Mobile app release</span>
+                                                            <span class="percent">98%</span>
+                                                        </span>
+                                                        <span class="progress">
+                                                            <span style="width: 98%;" class="progress-bar progress-bar-success" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100">
+                                                                <span class="sr-only">98% Complete</span>
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <span class="task">
+                                                            <span class="desc">Database migration</span>
+                                                            <span class="percent">10%</span>
+                                                        </span>
+                                                        <span class="progress">
+                                                            <span style="width: 10%;" class="progress-bar progress-bar-warning" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                                                <span class="sr-only">10% Complete</span>
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <span class="task">
+                                                            <span class="desc">Web server upgrade</span>
+                                                            <span class="percent">58%</span>
+                                                        </span>
+                                                        <span class="progress">
+                                                            <span style="width: 58%;" class="progress-bar progress-bar-info" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100">
+                                                                <span class="sr-only">58% Complete</span>
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <span class="task">
+                                                            <span class="desc">Mobile development</span>
+                                                            <span class="percent">85%</span>
+                                                        </span>
+                                                        <span class="progress">
+                                                            <span style="width: 85%;" class="progress-bar progress-bar-success" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                                                <span class="sr-only">85% Complete</span>
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <span class="task">
+                                                            <span class="desc">New UI release</span>
+                                                            <span class="percent">38%</span>
+                                                        </span>
+                                                        <span class="progress progress-striped">
+                                                            <span style="width: 38%;" class="progress-bar progress-bar-important" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100">
+                                                                <span class="sr-only">38% Complete</span>
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- END TODO DROPDOWN -->
+                                <!-- BEGIN USER LOGIN DROPDOWN -->
+                                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                                <li class="dropdown dropdown-user">
+                                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                        <img alt="" id="imgAvatar" runat="server" class="img-circle" src="/Content/Images/media/users/avatar3_small.jpg" />
+                                        <span class="username username-hide-on-mobile" id="userSpan" runat="server"></span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-default">
+                                        <li>
+                                            <a href="<%= Page.ResolveUrl("~/Moduls/Generals/UserProfile.aspx") %>">
+                                                <i class="icon-user"></i>Profilim </a>
+                                        </li>
+                                        <li>
+                                            <a href="app_inbox.html">
+                                                <i class="icon-envelope-open"></i>Mesajlarım
+                                            <span class="badge badge-danger">3 </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a onclick="CreateShortcut();">
+                                                <i class="icon-rocket"></i>Kısayol Oluştur
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a onclick="Logout();">
+                                                <i class="icon-key"></i>Çıkış </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- END USER LOGIN DROPDOWN -->
+                                <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                                <li class="dropdown dropdown-quick-sidebar-toggler">
+                                    <a href="javascript:$('#btnStartChat').click();" class="dropdown-toggle">
+                                        <i class="icon-logout"></i>
+                                    </a>
+                                </li>
+                                <!-- END QUICK SIDEBAR TOGGLER -->
+                            </ul>
+                        </div>
+                        <!-- END TOP NAVIGATION MENU -->
+                    </div>
+                    <!-- END HEADER INNER -->
+                </div>
+                <!-- END HEADER -->
+                <!-- BEGIN HEADER & CONTENT DIVIDER -->
+                <div class="clearfix"></div>
+                <!-- END HEADER & CONTENT DIVIDER -->
+                <!-- BEGIN CONTAINER -->
+                <div class="page-container">
+                    <!-- BEGIN SIDEBAR -->
+                   x
+                    <div class="page-sidebar-wrapper">
+                        <!-- BEGIN SIDEBAR -->
+                        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                        <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                        <div class="page-sidebar navbar-collapse collapse">
+                            <ul id="sideBarUL" runat="server" class="page-sidebar-menu  page-header-fixed page-sidebar-menu-closed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+                                <%--page-sidebar-menu  page-header-fixed--%>
+                            </ul>
+                            <!-- END SIDEBAR MENU -->
+                            <!-- END SIDEBAR MENU -->
+                        </div>
+                        <!-- END SIDEBAR -->
+                    </div>
+                    <!-- END SIDEBAR -->
+                    <!-- BEGIN CONTENT -->
+                    <div class="page-content-wrapper">
+                        <!-- BEGIN CONTENT BODY -->
+                        <div class="page-content" id="pageContainer">
+                            <!-- BEGIN PAGE HEADER-->
+                            <!-- BEGIN THEME PANEL -->
+                            <div class="theme-panel hidden-xs hidden-sm">
+                                <div class="toggler" style="display: none;"></div>
+                                <div class="toggler-close"></div>
+                                <div class="theme-options">
+                                    <div class="theme-option theme-colors clearfix">
+                                        <span>THEME COLOR </span>
+                                        <ul>
+                                            <li class="color-default current tooltips" data-style="default" data-container="body" data-original-title="Default"></li>
+                                            <li class="color-darkblue tooltips" data-style="darkblue" data-container="body" data-original-title="Dark Blue"></li>
+                                            <li class="color-blue tooltips" data-style="blue" data-container="body" data-original-title="Blue"></li>
+                                            <li class="color-grey tooltips" data-style="grey" data-container="body" data-original-title="Grey"></li>
+                                            <li class="color-light tooltips" data-style="light" data-container="body" data-original-title="Light"></li>
+                                            <li class="color-light2 tooltips" data-style="light2" data-container="body" data-html="true" data-original-title="Light 2"></li>
+                                        </ul>
+                                    </div>
+                                    <div class="theme-option">
+                                        <span>Theme Style </span>
+                                        <select class="layout-style-option form-control input-sm">
+                                            <option value="square" selected="selected">Square corners</option>
+                                            <option value="rounded">Rounded corners</option>
+                                        </select>
+                                    </div>
+                                    <div class="theme-option">
+                                        <span>Layout </span>
+                                        <select class="layout-option form-control input-sm">
+                                            <option value="fluid" selected="selected">Fluid</option>
+                                            <option value="boxed">Boxed</option>
+                                        </select>
+                                    </div>
+                                    <div class="theme-option">
+                                        <span>Header </span>
+                                        <select class="page-header-option form-control input-sm">
+                                            <option value="fixed" selected="selected">Fixed</option>
+                                            <option value="default">Default</option>
+                                        </select>
+                                    </div>
+                                    <div class="theme-option">
+                                        <span>Top Menu Dropdown</span>
+                                        <select class="page-header-top-dropdown-style-option form-control input-sm">
+                                            <option value="light" selected="selected">Light</option>
+                                            <option value="dark">Dark</option>
+                                        </select>
+                                    </div>
+                                    <div class="theme-option">
+                                        <span>Sidebar Mode</span>
+                                        <select class="sidebar-option form-control input-sm">
+                                            <option value="fixed">Fixed</option>
+                                            <option value="default" selected="selected">Default</option>
+                                        </select>
+                                    </div>
+                                    <div class="theme-option">
+                                        <span>Sidebar Menu </span>
+                                        <select class="sidebar-menu-option form-control input-sm">
+                                            <option value="accordion" selected="selected">Accordion</option>
+                                            <option value="hover">Hover</option>
+                                        </select>
+                                    </div>
+                                    <div class="theme-option">
+                                        <span>Sidebar Style </span>
+                                        <select class="sidebar-style-option form-control input-sm">
+                                            <option value="default" selected="selected">Default</option>
+                                            <option value="light">Light</option>
+                                        </select>
+                                    </div>
+                                    <div class="theme-option">
+                                        <span>Sidebar Position </span>
+                                        <select class="sidebar-pos-option form-control input-sm">
+                                            <option value="left" selected="selected">Left</option>
+                                            <option value="right">Right</option>
+                                        </select>
+                                    </div>
+                                    <div class="theme-option">
+                                        <span>Footer </span>
+                                        <select class="page-footer-option form-control input-sm">
+                                            <option value="fixed">Fixed</option>
+                                            <option value="default" selected="selected">Default</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END THEME PANEL -->
+                            <asp:HiddenField ID="hdnSelectedMenu" runat="server" Value="" />
+
+                            <!-- BEGIN PAGE BAR -->
+                            <div class="page-bar">
+                                <ul class="page-breadcrumb" id="linker" runat="server">
+                                </ul>
+                                <div class="page-toolbar">
+                                    <button type="button" class="pull-right btn btn-sm red" href="<%= Page.ResolveUrl("~/Moduls/HelpContents/HelpForm.aspx?HelpContent=CustomerDetail")%>" data-target="#ajax" data-toggle="modal">
+                                        <i class="fa fa-life-buoy" aria-hidden="true"></i>
+                                        <span class="hidden-xs">Yardım</span>
+                                    </button>
+                                    <div id="spanDater" runat="server" class="pull-right thin uppercase hidden-xs" style="padding: 5px 10px;"></div>
+                                </div>
+                            </div>
+                            <!-- END PAGE BAR -->
+                            <!--
+                                Neden margin10 verildi? Sildim ben onu. - Yıldırım Erdemli
+                                <div id="rowContainer" class="row margin10">
+                            -->
+                            <iframe frameborder="0" id="mainFrame" name="mainFrame" style="display: none;"></iframe>
+                            <div id="rowContainer" class="row">
+                                <%--                                <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="conditional">
+                                    <ContentTemplate>
+                                        <asp:Button ID="btnClicker" runat="server" OnClick="btnClicker_Click1" Style="display: none;" />
+                                        <asp:UpdateProgress ID="uprAccount" runat="server" style="background-color: #666; width: 98%; height: 80%; position: absolute; background-color: white; z-index: 10000000; opacity: 1;">
+                                            <ProgressTemplate>
+                                                <img src='<%=ResolveUrl("~/images/plsWaitImg.gif")%>' alt="Please wait while loading data" />
+                                                &nbsp; Datalar yüklenirken lütfen bekleyin...
+                                            </ProgressTemplate>
+                                        </asp:UpdateProgress>
+                                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="btnClicker" EventName="Click" />
+                                    </Triggers>
+                                </asp:UpdatePanel>--%>
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                               
+                            </div>
+                             <div notifications="top right"></div>
+                            <div id="divWait" style="display: none; position: absolute;">
+                                <img src='<%=ResolveUrl("~/images/plsWaitImg.gif")%>' alt="Please wait while loading data" style="vertical-align: middle;" />
+                                &nbsp; loading...<br />
+                                <br />
+                                Please wait...
+                            </div>
+
+                            <asp:Button ID="btnShortcutClicker" runat="server" OnClick="btnShortcutClicker_Click" Style="display: none;" />
+                        </div>
+                        <!-- END CONTENT BODY -->
+                    </div>
+                    <!-- END CONTENT -->
+                    <!-- BEGIN QUICK SIDEBAR -->
+                    <a href="javascript:;" class="page-quick-sidebar-toggler">
+                        <i class="icon-login"></i>
+                    </a>
+                    <div class="page-quick-sidebar-wrapper" data-close-on-body-click="false">
+                        <div class="page-quick-sidebar">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="javascript:;" data-target="#quick_sidebar_tab_1" data-toggle="tab">Bağlı Kullanıcılar
+                                    <span class="badge badge-danger" id="linkedUserCount" runat="server">2</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" data-target="#quick_sidebar_tab_2" data-toggle="tab">Uyarılar
+                                    <span class="badge badge-success">7</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active page-quick-sidebar-chat" id="quick_sidebar_tab_1">
+                                    <div class="page-quick-sidebar-chat-users" data-rail-color="#ddd" data-wrapper-class="page-quick-sidebar-list">
+                                        <h3 class="list-heading">Personeller</h3>
+
+                                        <div id="divLogin" class="login">
+                                            <div>
+                                                <input id="txtNickName" runat="server" type="text" class="textBox" />
+                                            </div>
+                                            <div id="divButton">
+                                                <input id="btnStartChat" runat="server" type="button" class="submitButton" value="Start Chat" />
+                                            </div>
+                                        </div>
+
+                                        <div id="divContainer">
+                                            <div class="title">
+                                                Haselchat'e hoş geldiniz
+                                            </div>
+                                            <div id="divusers" class="users">
+                                            </div>
+                                            <div id="divChat" class="chatRoom">
+
+                                                <div class="content">
+                                                    <div id="divChatWindow" class="chatWindow">
+                                                    </div>
+                                                </div>
+                                                <div class="messageBar">
+                                                    <input class="textbox" type="text" id="txtMessage" onkeypress="EnterKeyPress();" />
+                                                    <input id="btnSendMsg" type="button" value="Gönder" class="submitButton" />
+                                                </div>
+                                            </div>
+                                            <input id="hdId" type="hidden" />
+                                            <input id="hdUserName" type="hidden" />
+                                        </div>
+                                    </div>
+                                    <div class="page-quick-sidebar-item">
+                                        <div class="page-quick-sidebar-chat-user">
+
+                                            <div class="page-quick-sidebar-nav">
+                                                <a href="javascript:;" class="page-quick-sidebar-back-to-list">
+                                                    <i class="icon-arrow-left"></i>Back</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane page-quick-sidebar-alerts" id="quick_sidebar_tab_2">
+                                    <div class="page-quick-sidebar-alerts-list">
+                                        <h3 class="list-heading">General</h3>
+                                        <ul class="feeds list-items">
+                                            <li>
+                                                <div class="col1">
+                                                    <div class="cont">
+                                                        <div class="cont-col1">
+                                                            <div class="label label-sm label-info">
+                                                                <i class="fa fa-check"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cont-col2">
+                                                            <div class="desc">
+                                                                You have 4 pending tasks.
+                                                            <span class="label label-sm label-warning ">Take action
+                                                                <i class="fa fa-share"></i>
+                                                            </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col2">
+                                                    <div class="date">Just now </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <div class="col1">
+                                                        <div class="cont">
+                                                            <div class="cont-col1">
+                                                                <div class="label label-sm label-success">
+                                                                    <i class="fa fa-bar-chart-o"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cont-col2">
+                                                                <div class="desc">Finance Report for year 2017 has been released. </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col2">
+                                                        <div class="date">20 mins </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <h3 class="list-heading">System</h3>
+                                        <ul class="feeds list-items">
+                                            <li>
+                                                <div class="col1">
+                                                    <div class="cont">
+                                                        <div class="cont-col1">
+                                                            <div class="label label-sm label-info">
+                                                                <i class="fa fa-check"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cont-col2">
+                                                            <div class="desc">
+                                                                You have 4 pending tasks.
+                                                            <span class="label label-sm label-warning ">Take action
+                                                                <i class="fa fa-share"></i>
+                                                            </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col2">
+                                                    <div class="date">Just now </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane page-quick-sidebar-settings" id="quick_sidebar_tab_3">
+                                    <div class="page-quick-sidebar-settings-list">
+                                        <h3 class="list-heading">General Settings</h3>
+                                        <ul class="list-items borderless">
+                                            <li>Enable Notifications
+                                            <input type="checkbox" class="make-switch" checked data-size="small" data-on-color="success" data-on-text="ON" data-off-color="default" data-off-text="OFF">
+                                            </li>
+                                            <li>Allow Tracking
+                                            <input type="checkbox" class="make-switch" data-size="small" data-on-color="info" data-on-text="ON" data-off-color="default" data-off-text="OFF">
+                                            </li>
+                                        </ul>
+                                        <h3 class="list-heading">System Settings</h3>
+                                        <ul class="list-items borderless">
+                                            <li>Security Level
+                                            <select class="form-control input-inline input-sm input-small">
+                                                <option value="1">Normal</option>
+                                                <option value="2" selected>Medium</option>
+                                                <option value="e">High</option>
+                                            </select>
+                                            </li>
+                                            <li>Failed Email Attempts
+                                            <input class="form-control input-inline input-sm input-small" value="5" />
+                                            </li>
+                                        </ul>
+                                        <div class="inner-content">
+                                            <button class="btn btn-success">
+                                                <i class="icon-settings"></i>Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END QUICK SIDEBAR -->
+                </div>
+                <!-- END CONTAINER -->
+                <!-- BEGIN FOOTER -->
+                <div class="page-footer">
+                    <div class="page-footer-inner">
+                        2016 &copy; Hasel Makine By
+                    <a target="_blank" href="http://hasel.com/">HASEL</a>
+                    </div>
+                    <div class="scroll-to-top">
+                        <i class="icon-arrow-up"></i>
+                    </div>
+                </div>
+                <!-- END FOOTER -->
+            </div>
+            <!-- BEGIN QUICK NAV -->
+
+            <div class="quick-nav-overlay"></div>
+            <div class="modal fade" id="ajax" role="basic">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                            <h4 class="modal-title">Hasel CRM Yardım</h4>
+                        </div>
+                        <div class="modal-body">
+                            <img src="/Content/Images/loading-spinner-grey.gif" alt="" class="loading">
+                            <span>&nbsp;&nbsp;Yükleniyor... </span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn dark btn-outline" data-dismiss="modal">Kapat</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END QUICK NAV -->
+
+            <%--[if lt IE 9]>
+            <script src="/Scripts/Misc/excanvas.min.js"></script>
+            <script src="/Scripts/Misc/ie8.fix.min.js"></script>
+            <![endif]--%>
+
+            <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        </div>
+    </form>
+    <%: Scripts.Render("~/bundles/js/coreplugins") %>
+    <%: Scripts.Render("~/bundles/MsAjaxJs")  %>
+    <%: Scripts.Render("~/bundles/WebFormsJs")  %>
+    <%: Scripts.Render("~/bundles/modernizr") %>
+
+    <script src='<%=ResolveUrl("~/signalr/hubs")%>' type="text/javascript"></script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-85962534-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script type="text/javascript">
+        var appInsights = window.appInsights || function (config) {
+            function i(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = "AuthenticatedUserContext", h = "start", c = "stop", l = "Track", a = l + "Event", v = l + "Page", y = u.createElement(o), r, f; y.src = config.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js"; u.getElementsByTagName(o)[0].parentNode.appendChild(y); try { t.cookie = u.cookie } catch (p) { } for (t.queue = [], t.version = "1.0", r = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; r.length;) i("track" + r.pop()); return i("set" + s), i("clear" + s), i(h + a), i(c + a), i(h + v), i(c + v), i("flush"), config.disableExceptionTracking || (r = "onerror", i("_" + r), f = e[r], e[r] = function (config, i, u, e, o) { var s = f && f(config, i, u, e, o); return s !== !0 && t["_" + r](config, i, u, e, o), s }), t
+        }({
+            instrumentationKey: "b8c2cfb4-b4e2-40f8-b7b9-d8a3afb6787a"
+        });
+
+        window.appInsights = appInsights;
+        appInsights.trackPageView();
+    </script>
+    <script type="text/javascript">
+        function LogM(errorMessage) {
+            LogE(errorMessage, "-empty-", "-empty-");
+        }
+        function LogI(errorMessage, metodName) {
+            LogE(errorMessage, metodName, "");
+        }
+        function LogE(errorMessage, errorUrl, errorLine) {
+            try {
+
+                if (errorUrl.indexOf("localhost") == -1) {
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/HaselSOAService.asmx/Log',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        data: "{em:'" + errorMessage.split("'").join("|") + "',eu:'" + errorUrl + " -wlocalhref:" + window.location.href + "' , el:'" + errorLine + "', us:'" + $("[id*=hdnUser]").val() + "'}",
+                        success: function () {
+                            if (console && console.log) {
+                                console.error(errorMessage, errorUrl, errorLine);
+                            }
+                        },
+                        error: function () {
+                            if (console && console.error) {
+                                console.log('hata JS error report gonderme islemi basarilamadi! Hata');
+                                console.error(errorMessage, errorUrl, errorLine);
+                            }
+                        }
+                    });
+
+                    return true;
+
+                }
+            } catch (ex) {
+                alert("js log send error. ");
+            }
+
+        };
+        window.onerror = function (errorMessage, errorUrl, errorLine) {
+            LogE(errorMessage, errorUrl, errorLine);
+        };
+
+        $(document).ready(function () {
+            var elem = localStorage.getItem("selectedElement")
+            if (elem != null && elem != "[object Object]") {
+                var tElement = document.getElementById(elem);
+                if (tElement != null && tElement.classList != null)
+                    tElement.classList.add('active');
+            }
+        });
+
+        $(function () {
+            $('.nav-item').click(function (e) {
+                var isDiv = this.parentElement.parentNode.tagName;
+                var $parent = $(this).parent();
+                if (isDiv == "DIV") {
+                    if (!$(this).hasClass('active')) {
+                        $('.nav-item').removeClass('active');
+                    }
+                }
+
+                var element = this.id;
+                localStorage.setItem('selectedElement', element);
+                setTimeout(explode, 200, $(this));
+
+                if (!$parent.hasClass('active')) {
+                    $parent.addClass('active');
+
+                }
+            });
+
+            var $loading = $('#loadingDiv').hide();
+            $(document).ajaxStart(function () {
+                $loading.show();
+            }).ajaxStop(function () {
+                $loading.hide();
+            });
+        });
+
+        function explode(th) {
+            th.addClass('active');
+        }
+
+        function NavigateWithAjax(menuname) {
+            window.location = menuname;
+            //var ifrm = document.getElementById("mainFrame");
+            //ifrm.setAttribute("src", menuname);
+            //ifrm.addEventListener("load", function () {
+            //    var targetRowContainer = document.getElementById('rowContainer');
+            //    var pContainer = document.getElementById('pageContainer');
+
+            //    var nRowContainer = document.getElementById('mainFrame').contentWindow.document.getElementById('rowContainer');
+            //    targetRowContainer.remove();
+            //    $('#pageContainer').append(nRowContainer);
+            //});
+        }
+
+        //var isChromium = window.chrome,
+        //    winNav = window.navigator,
+        //    vendorName = winNav.vendor,
+        //    isOpera = winNav.userAgent.indexOf("OPR") > -1,
+        //    isIEedge = winNav.userAgent.indexOf("Edge") > -1,
+        //    isIOSChrome = winNav.userAgent.match("CriOS");
+        //if (isIOSChrome) {
+        //} else if (isChromium !== null && isChromium !== undefined && vendorName === "Google Inc." && isOpera == false && isIEedge == false) {
+        //} else {
+        //    if (window.location.href.indexOf("live.hasel") > -1) {
+        //        alert('HaselOne Uygulaması google chrome versiyonları ile çalışacak şekilde yazılmıştır. Lütfen Uygulamayı Google Chrome dışında bir internet Browser ile kullanmayınız...!!');
+        //        window.location = '/Moduls/Generals/Login.Aspx';
+        //    }
+        //}
+
+        function CreateShortcut() {
+            document.getElementById('btnShortcutClicker').click();
+        }
+
+        function Logout() {
+            $.ajax({
+                type: "POST",
+                url: '/HaselSOAService.asmx/Logout',
+                data: "{valu:1}",
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (data) {
+                    window.location = '<%=ResolveUrl("~/Moduls/Generals/Login.aspx?p=exit")%>';
+                },
+                error: function (data) {
+                    alert(data.d)
+                }
+            });
+            }
+
+<%--            var clicked = false;
+            var xmlHttp;
+            var browser = navigator.appName;
+            function CheckBrowser() {
+                if (clicked == false) {
+                    xmlHttp = GetXmlHttpObject();
+                    xmlHttp.open("GET", "<%= Page.ResolveUrl("~/SessionEnd.aspx") %>", true);
+                xmlHttp.onreadystatechange = function () {
+                    if (xmlHttp.readyState == 4) {
+                    }
+                }
+                xmlHttp.send(null)
+                if (browser == "Netscape") {
+                    window.location = "<%= Page.ResolveUrl("~/SessionEnd.aspx") %>";
+                }
+            }
+            else {
+                clicked = false;
+            }
+        }--%>
+
+        //function GetXmlHttpObject() {
+        //    var xmlHttp = null;
+        //    try {
+        //        xmlHttp = new XMLHttpRequest();
+        //    }
+        //    catch (e) {
+        //        try {
+        //            xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+        //        }
+        //        catch (e) {
+        //            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        //        }
+        //    }
+        //    return xmlHttp;
+        //}
+
+        function openInNewWindow() {
+            var newWindow = window.open("<%= Page.ResolveUrl("~/SessionEnd.aspx") %>");
+            newWindow.focus();
+            return false;
+        }
+
+        HaselApp.controller("masterController", ["$scope", "$http", "$timeout", function ($scope, $http, $timeout) {
+
+            $scope.moment = moment;
+
+            // navigation
+            $scope.go = function (url) {
+                window.location.href = url;
+            }
+
+            //scroll
+            $scope.ScrollTop = function () {
+                var ok = $(window).scrollTop() > 100;
+                $scope.ShowScrollTopButton = ok;
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 300);
+            }
+
+        }]);
+    </script>
+    <asp:ContentPlaceHolder ID="scriptbase" runat="server"></asp:ContentPlaceHolder>
+    <div id="loadingDiv" style="height: 500px; width: 100px;">Bekleyiniz</div>
+    <style>
+        /* Yardım Liste Düzeltmesi */
+        #helpContainer > ul {
+            margin-left: 30px;
+        }
+
+            #helpContainer > ul > li {
+                background: #EFEFEF;
+                margin-bottom: 3px;
+                padding: 5px;
+            }
+    </style>
+</body>
+</html>

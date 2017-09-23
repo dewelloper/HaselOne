@@ -1,0 +1,10 @@
+C:\Hasel\HaselOne\ONEHASEL\DAL_Dochuman\bin\Release\DAL_Dochuman.dll.config
+C:\Hasel\HaselOne\ONEHASEL\DAL_Dochuman\bin\Release\DAL_Dochuman.dll
+C:\Hasel\HaselOne\ONEHASEL\DAL_Dochuman\bin\Release\DAL_Dochuman.pdb
+C:\Hasel\HaselOne\ONEHASEL\DAL_Dochuman\bin\Release\EntityFramework.dll
+C:\Hasel\HaselOne\ONEHASEL\DAL_Dochuman\bin\Release\EntityFramework.SqlServer.dll
+C:\Hasel\HaselOne\ONEHASEL\DAL_Dochuman\bin\Release\EntityFramework.xml
+C:\Hasel\HaselOne\ONEHASEL\DAL_Dochuman\bin\Release\EntityFramework.SqlServer.xml
+C:\Hasel\HaselOne\ONEHASEL\DAL_Dochuman\obj\Release\DAL_Dochuman.csprojResolveAssemblyReference.cache
+C:\Hasel\HaselOne\ONEHASEL\DAL_Dochuman\obj\Release\DAL_Dochuman.dll
+C:\Hasel\HaselOne\ONEHASEL\DAL_Dochuman\obj\Release\DAL_Dochuman.pdb

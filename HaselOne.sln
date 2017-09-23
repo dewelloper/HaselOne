@@ -1,0 +1,116 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaselOne", "HaselOne\HaselOne.csproj", "{41D53404-5945-4146-A9E4-42BF672414DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AccessLayer", "AccessLayer", "{3FC96160-7F0C-4A83-AC17-F3E5785A0AE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{75E8D6C9-40EB-4AF6-BC08-3380ECB6E1A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaselOne.Domain", "HaselOne.Domain\HaselOne.Domain.csproj", "{75469C7B-E0DA-46E9-B209-79D806A0F2F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaselOne.Services", "HaselOne.Services\HaselOne.Services.csproj", "{BDBBAB7F-D495-4963-94BF-A52BD0827089}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HaselOne.IOC", "HaselOne.IOC", "{5F555C98-2E10-47A0-BA8C-74006F303092}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaselOne.Ioc", "HaselOne.IOC\HaselOne.Ioc.csproj", "{AA171E67-8C22-4B5C-8C43-3807E96DCF73}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HaselOne.BusinessObjects", "HaselOne.BusinessObjects", "{D604E873-613C-4387-81D6-A7DC675ABB0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObjects", "BusinessObjects\BusinessObjects.csproj", "{6A659851-FF72-4EC8-BEA9-FB9AD3237A6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AccessLayer_Dochuman", "AccessLayer_Dochuman", "{B209A0A7-300D-4962-B0AD-392FF7A95BCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL_Dochuman", "DAL_Dochuman\DAL_Dochuman.csproj", "{34A61E59-25E0-44C3-B4C8-B5551399A79F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HaselOne.Test", "HaselOne.Test", "{3ECF52F2-C4CB-4BCA-A337-59D86CF1B402}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaselOne.UnitTest", "HaselOne.UnitTest\HaselOne.UnitTest.csproj", "{CE14907F-E63D-4DD8-975C-E1F3242F547F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41D53404-5945-4146-A9E4-42BF672414DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41D53404-5945-4146-A9E4-42BF672414DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41D53404-5945-4146-A9E4-42BF672414DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41D53404-5945-4146-A9E4-42BF672414DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E8D6C9-40EB-4AF6-BC08-3380ECB6E1A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E8D6C9-40EB-4AF6-BC08-3380ECB6E1A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E8D6C9-40EB-4AF6-BC08-3380ECB6E1A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E8D6C9-40EB-4AF6-BC08-3380ECB6E1A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75469C7B-E0DA-46E9-B209-79D806A0F2F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75469C7B-E0DA-46E9-B209-79D806A0F2F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75469C7B-E0DA-46E9-B209-79D806A0F2F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75469C7B-E0DA-46E9-B209-79D806A0F2F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDBBAB7F-D495-4963-94BF-A52BD0827089}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDBBAB7F-D495-4963-94BF-A52BD0827089}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDBBAB7F-D495-4963-94BF-A52BD0827089}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDBBAB7F-D495-4963-94BF-A52BD0827089}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA171E67-8C22-4B5C-8C43-3807E96DCF73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA171E67-8C22-4B5C-8C43-3807E96DCF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA171E67-8C22-4B5C-8C43-3807E96DCF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA171E67-8C22-4B5C-8C43-3807E96DCF73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A659851-FF72-4EC8-BEA9-FB9AD3237A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A659851-FF72-4EC8-BEA9-FB9AD3237A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A659851-FF72-4EC8-BEA9-FB9AD3237A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A659851-FF72-4EC8-BEA9-FB9AD3237A6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34A61E59-25E0-44C3-B4C8-B5551399A79F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34A61E59-25E0-44C3-B4C8-B5551399A79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34A61E59-25E0-44C3-B4C8-B5551399A79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34A61E59-25E0-44C3-B4C8-B5551399A79F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE14907F-E63D-4DD8-975C-E1F3242F547F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE14907F-E63D-4DD8-975C-E1F3242F547F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE14907F-E63D-4DD8-975C-E1F3242F547F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE14907F-E63D-4DD8-975C-E1F3242F547F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{75E8D6C9-40EB-4AF6-BC08-3380ECB6E1A4} = {3FC96160-7F0C-4A83-AC17-F3E5785A0AE6}
+		{AA171E67-8C22-4B5C-8C43-3807E96DCF73} = {5F555C98-2E10-47A0-BA8C-74006F303092}
+		{6A659851-FF72-4EC8-BEA9-FB9AD3237A6D} = {D604E873-613C-4387-81D6-A7DC675ABB0A}
+		{34A61E59-25E0-44C3-B4C8-B5551399A79F} = {B209A0A7-300D-4962-B0AD-392FF7A95BCC}
+		{CE14907F-E63D-4DD8-975C-E1F3242F547F} = {3ECF52F2-C4CB-4BCA-A337-59D86CF1B402}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://yazilim-pc5:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DAL\\DAL.csproj
+		SccProjectTopLevelParentUniqueName1 = HaselOne.sln
+		SccProjectName1 = DAL
+		SccLocalPath1 = DAL
+		SccProjectUniqueName2 = BusinessObjects\\BusinessObjects.csproj
+		SccProjectTopLevelParentUniqueName2 = HaselOne.sln
+		SccProjectName2 = BusinessObjects
+		SccLocalPath2 = BusinessObjects
+		SccProjectUniqueName3 = HaselOne.Domain\\HaselOne.Domain.csproj
+		SccProjectName3 = HaselOne.Domain
+		SccLocalPath3 = HaselOne.Domain
+		SccProjectUniqueName4 = HaselOne.Services\\HaselOne.Services.csproj
+		SccProjectName4 = HaselOne.Services
+		SccLocalPath4 = HaselOne.Services
+		SccProjectUniqueName5 = HaselOne.IOC\\HaselOne.Ioc.csproj
+		SccProjectTopLevelParentUniqueName5 = HaselOne.sln
+		SccProjectName5 = HaselOne.IOC
+		SccLocalPath5 = HaselOne.IOC
+		SccProjectUniqueName6 = HaselOne\\HaselOne.csproj
+		SccProjectName6 = HaselOne
+		SccLocalPath6 = HaselOne
+		SccProjectUniqueName7 = DAL_Dochuman\\DAL_Dochuman.csproj
+		SccProjectTopLevelParentUniqueName7 = HaselOne.sln
+		SccProjectName7 = DAL_Dochuman
+		SccLocalPath7 = DAL_Dochuman
+		SccProjectUniqueName8 = HaselOne.UnitTest\\HaselOne.UnitTest.csproj
+		SccProjectTopLevelParentUniqueName8 = HaselOne.sln
+		SccProjectName8 = HaselOne.UnitTest
+		SccLocalPath8 = HaselOne.UnitTest
+	EndGlobalSection
+EndGlobal

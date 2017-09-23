@@ -1,0 +1,36 @@
+﻿<div class="input-group" ng-if="multipleX">
+    <ui-select multiple ng-model="params.Model" ng-required="required" close-on-select="true" theme="bootstrap" ng-disabled="!enabled" reset-search-input="true">
+        <ui-select-match placeholder="{{ options.placeholder }}">
+            <span ng-bind-html="GetDisplayText($item)"></span>
+        </ui-select-match>
+        <ui-select-choices group-by="GroupBy" repeat="p in options.data | filter: $select.search">
+            <div ng-bind-html="GetText(p)"></div>
+        </ui-select-choices>
+    </ui-select>
+    <div class="input-group-btn ui-select-button">
+            <span ng-click="params.Model = null" class="btn btn-default" ng-disabled="params.Model==null || params.Model.length == 0 || !enabled"><i class="icon-trash"></i></span>
+    </div>
+</div>
+
+<div class="input-group" ng-if="!multipleX">
+    <ui-select ng-model="params.Model" ng-required="required" theme="bootstrap" close-on-select="true" ng-disabled="!enabled" reset-search-input="true">
+        <ui-select-match  placeholder="{{ options.placeholder }}">
+            <span ng-bind-html="GetDisplayText($select.selected)"></span>
+        </ui-select-match>
+        <ui-select-choices group-by="GroupBy" repeat="p in options.data | filter: $select.search">
+            <div ng-bind-html="GetText(p)"></div>
+        </ui-select-choices>
+    </ui-select>
+    <div class="input-group-btn ui-select-button">
+      
+            <span ng-click="FireDirections('L')" class="btn btn-default" style="padding-left:6px;padding-right:6px" ng-disabled="params.Model==null || !enabled" ng-show="options.showLeftRight">
+                <i class="fa fa-caret-left"></i>
+            </span>
+            <span ng-click="FireDirections('R')" class="btn btn-default" style="padding-left:6px;padding-right:6px" ng-disabled="params.Model==null || !enabled" ng-show="options.showLeftRight">
+                <i class="fa fa-caret-right"></i>
+            </span>
+            <span ng-click="params.Model = null" class="btn btn-default" ng-disabled="params.Model==null || !enabled"><i class="icon-trash"></i></span>
+       
+    </div>
+</div>
+

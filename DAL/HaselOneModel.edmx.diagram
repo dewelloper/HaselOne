@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4d6c8d5dba79474cb83443f0f774f3fd" Name="Diagram1" ZoomLevel="41">
+        <EntityTypeShape EntityType="HASELONEModel.Cm_Customer" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Cm_CustomerAuthenticators" Width="1.5" PointX="6" PointY="13.125" />
+        <EntityTypeShape EntityType="HASELONEModel.Cm_CustomerInterviews" Width="1.5" PointX="14.25" PointY="16.375" />
+        <EntityTypeShape EntityType="HASELONEModel.Cm_CustomerLocations" Width="1.5" PointX="3" PointY="12" />
+        <EntityTypeShape EntityType="HASELONEModel.Cm_CustomerMachineparks" Width="1.5" PointX="11.25" PointY="14.875" />
+        <EntityTypeShape EntityType="HASELONEModel.Cm_CustomerRequest" Width="1.5" PointX="9" PointY="16.5" />
+        <EntityTypeShape EntityType="HASELONEModel.Cm_CustomerSalesmans" Width="1.5" PointX="3" PointY="18.5" />
+        <EntityTypeShape EntityType="HASELONEModel.Cm_Interview" Width="1.5" PointX="12" PointY="11.875" />
+        <EntityTypeShape EntityType="HASELONEModel.Cm_MachineparkCategory" Width="1.5" PointX="6.75" PointY="28.875" />
+        <EntityTypeShape EntityType="HASELONEModel.Cm_MachineparkMark" Width="1.5" PointX="6.75" PointY="9.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Cm_MachineparkOwnership" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Cm_MachineparkRental" Width="1.5" PointX="16.5" PointY="17.5" />
+        <EntityTypeShape EntityType="HASELONEModel.Cm_MachineparkYear" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_Area" Width="1.5" PointX="3.75" PointY="23.375" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_AreaCity" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_AreaCityRegions" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_Category" Width="1.5" PointX="1.5" PointY="25.875" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_CategoryDetails" Width="1.5" PointX="8.75" PointY="7.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_Combos" Width="1.5" PointX="8" PointY="0.875" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_ComboTypes" Width="1.5" PointX="5.75" PointY="1.25" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_ConnectionChannel" Width="1.5" PointX="6.75" PointY="32" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_ContentManagement" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_ContentTypes" Width="1.5" PointX="0.75" PointY="6.125" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_Control" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_ControlAuthorities" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_Department" Width="1.5" PointX="1.5" PointY="28.625" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_DepartmentRoles" Width="1.5" PointX="3.75" PointY="28" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_InterviewImportant" Width="1.5" PointX="12" PointY="23.375" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_ModulsAndMenus" Width="1.5" PointX="3.75" PointY="31.625" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_Notifications" Width="1.5" PointX="6" PointY="23.125" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_Role" Width="1.5" PointX="1.5" PointY="31" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_RoleRelation" Width="1.5" PointX="10.75" PointY="7.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_Sector" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_Segment" Width="1.5" PointX="8.75" PointY="10.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_User" Width="1.5" PointX="0.75" PointY="16.125" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_UserGroup" Width="1.5" PointX="11.75" PointY="4.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_UserGroupRights" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_UserModuls" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_UserRights" Width="1.5" PointX="14.75" PointY="5.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Gn_UserRoles" Width="1.5" PointX="6" PointY="19.375" />
+        <EntityTypeShape EntityType="HASELONEModel.Log_Cm_Customer" Width="1.5" PointX="14.75" PointY="10.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Log_Cm_CustomerAuthenticators" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Log_Cm_CustomerInterviews" Width="1.5" PointX="16.75" PointY="6.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Log_Cm_CustomerLocations" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Log_Cm_CustomerMachineparks" Width="1.5" PointX="18.75" PointY="6.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Log_Cm_CustomerRequest" Width="1.5" PointX="18.75" PointY="13.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Log_Cm_CustomerSalesmans" Width="1.5" PointX="20.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Log_Cm_MachineparkRental" Width="1.5" PointX="20.75" PointY="5.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Ns_BranchCode" Width="1.5" PointX="20.75" PointY="10.75" />
+        <EntityTypeShape EntityType="HASELONEModel.Pr_MachineModel" Width="1.5" PointX="6.75" PointY="34.75" />
+        <EntityTypeShape EntityType="HASELONEModel.sysdiagrams" Width="1.5" PointX="20.75" PointY="13.75" />
+        <EntityTypeShape EntityType="HASELONEModel.AppLog" Width="1.5" PointX="20.75" PointY="16.75" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerAuthenticators_Cm_Customer" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerLocations_Cm_Customer" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_Customer" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerRequest_Cm_Customer" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerSalesmans_Cm_Customer" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_MachineparkRental_Cm_Customer" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerAuthenticators_Gn_User" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerInterviews_Cm_CustomerAuthenticators" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerInterviews_Cm_Interview" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerInterviews_Gn_InterviewImportant" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerInterviews_Gn_User" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerInterviews_Gn_User_create" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerInterviews_Gn_User_updateuserid" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerInterviews_Gn_User1" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerLocations_Gn_User" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_CustomerLocations" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_CustomerRequest" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_MachineparkCategoriy" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerMachineparks_Cm_MachineparkMark" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerMachineparks_Gn_User_Creator" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerMachineparks_Gn_User_Delete" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerMachineparks_Gn_User_Modifier" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerMachineparks_Pr_MachineModel" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_MachineparkRental_Cm_CustomerMachineparks" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerRequest_Cm_MachineparkCategory" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerRequest_Cm_MachineparkMark" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerRequest_Gn_ConnectionChannel" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_CreateUser" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_DeleteUser" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_OwnerId" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_Salesmanid" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerRequest_Gn_User_UpdateUser" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerRequest_Pr_MachineModel" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_MachineparkRental_Cm_CustomerRequest" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerSalesmans_Gn_User" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_CustomerSalesmans_Gn_User1" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_MachineparkRental_Gn_User_Create" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_MachineparkRental_Gn_User_Delete" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_MachineparkRental_Gn_User_Update" />
+        <AssociationConnector Association="HASELONEModel.FK_Gn_UserRoles_Gn_Area" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_AreaCity_Cm_AreaCity" />
+        <AssociationConnector Association="HASELONEModel.FK_Cm_AreaCityRegions_Cm_AreaCity" />
+        <AssociationConnector Association="HASELONEModel.FK_Gn_DepartmentRoles_Gn_Category" />
+        <AssociationConnector Association="HASELONEModel.FK_Gn_Combos_Gn_ComboTypes" />
+        <AssociationConnector Association="HASELONEModel.FK_Gn_ContentManagement_Gn_ContentTypes" />
+        <AssociationConnector Association="HASELONEModel.FK_Gn_DepartmentRoles_Gn_Department" />
+        <AssociationConnector Association="HASELONEModel.FK_Gn_DepartmentRoles_Gn_Role" />
+        <AssociationConnector Association="HASELONEModel.FK_Gn_UserRoles_Gn_DepartmentRoles" />
+        <AssociationConnector Association="HASELONEModel.FK_Gn_Notifications_Gn_ModulsAndMenus" />
+        <AssociationConnector Association="HASELONEModel.FK_Gn_Notifications_Gn_User" />
+        <AssociationConnector Association="HASELONEModel.FK_Gn_Notifications_Gn_User2" />
+        <AssociationConnector Association="HASELONEModel.FK_Gn_UserRoles_Gn_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

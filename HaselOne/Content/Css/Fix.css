@@ -1,0 +1,170 @@
+﻿.panels {
+    padding: 5px 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+.boundedDiv {
+    margin: 8px !important;
+}
+
+.rightBallance {
+    padding-right: 4px !important;
+}
+
+.bottomBallance {
+    margin-bottom: 3px !important;
+}
+
+.topBallance {
+    margin-top: 10px !important;
+}
+
+.container {
+    margin-top: 17px !important;
+}
+
+.topTD {
+    padding-left: 0px !important;
+}
+
+.rightTD {
+    padding-left: 60px !important;
+}
+
+.middleTD {
+    padding-left: 30px !important;
+}
+
+.toLeftTub {
+    margin-left: -15px !important;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.linkHover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.login {
+    background-color: rgba(16, 180, 184, 0.25) !important;
+}
+
+.margin10 {
+    margin-top: 10px !important;
+}
+
+.catLevel0 {
+}
+
+.catLevel1 {
+    padding-left: 30px !important;
+}
+
+.catLevel2 {
+    padding-left: 60px !important;
+}
+
+.topCategory {
+    font-weight: bold;
+}
+
+.success {
+    position: absolute;
+    z-index: 1000000000;
+}
+
+#map-canvas {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.backColorClass {
+    background-color: red;
+    color: white;
+}
+
+.bckColorRed {
+    background-color: red !important;
+}
+
+    .bckColorRed a {
+        color: white !important;
+    }
+
+.bckColorGreen {
+    background-color: green !important;
+}
+
+    .bckColorGreen a {
+        color: white !important;
+    }
+
+.hero {
+    
+}
+
+.forDochuman{
+    background-color: #faf8b4 !important;
+    color: #0e1f0e !important;
+}
+
+input[type="radio"] {
+    margin: 4px 4px 4px 4px;
+}
+/**Notifications*/
+.dr-notification-container {
+    position: fixed;
+    z-index: 2000;
+}
+
+    .dr-notification-container.bottom {
+        bottom: 20px;
+    }
+
+    .dr-notification-container.right {
+        right: 20px;
+    }
+
+    .dr-notification-container.left {
+        left: 20px;
+    }
+
+    .dr-notification-container.top {
+        top: 60px;
+    }
+
+    .dr-notification-container.center {
+        left: 50%;
+        margin-left: -190px;
+    }
+
+.dr-notification-wrapper {
+    width: 380px;
+    position: relative;
+    margin: 10px 0;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    -moz-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+}
+/**Notifications*/
+.modal .modal-header .close {
+    margin-top: 20px !important;
+}
+
+.modal-title {
+    margin-top: 15px !important;
+}
+
+.no-padding {
+   padding: 0 !important;
+}
+
+.no-margin {
+   margin: 0 !important;
+}

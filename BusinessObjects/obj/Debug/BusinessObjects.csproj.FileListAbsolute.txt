@@ -1,0 +1,13 @@
+C:\Hasel\HaselOne\ONEHASEL\BusinessObjects\bin\Debug\BusinessObjects.dll
+C:\Hasel\HaselOne\ONEHASEL\BusinessObjects\bin\Debug\BusinessObjects.pdb
+C:\Hasel\HaselOne\ONEHASEL\BusinessObjects\bin\Debug\AutoMapper.dll
+C:\Hasel\HaselOne\ONEHASEL\BusinessObjects\bin\Debug\DAL.dll
+C:\Hasel\HaselOne\ONEHASEL\BusinessObjects\bin\Debug\EntityFramework.dll
+C:\Hasel\HaselOne\ONEHASEL\BusinessObjects\bin\Debug\Newtonsoft.Json.dll
+C:\Hasel\HaselOne\ONEHASEL\BusinessObjects\bin\Debug\DAL.pdb
+C:\Hasel\HaselOne\ONEHASEL\BusinessObjects\bin\Debug\AutoMapper.xml
+C:\Hasel\HaselOne\ONEHASEL\BusinessObjects\bin\Debug\EntityFramework.xml
+C:\Hasel\HaselOne\ONEHASEL\BusinessObjects\bin\Debug\Newtonsoft.Json.xml
+C:\Hasel\HaselOne\ONEHASEL\BusinessObjects\obj\Debug\BusinessObjects.csprojResolveAssemblyReference.cache
+C:\Hasel\HaselOne\ONEHASEL\BusinessObjects\obj\Debug\BusinessObjects.dll
+C:\Hasel\HaselOne\ONEHASEL\BusinessObjects\obj\Debug\BusinessObjects.pdb

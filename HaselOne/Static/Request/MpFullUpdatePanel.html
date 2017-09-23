@@ -1,0 +1,41 @@
+﻿<!--<form class="form-horizontal" role="form"></form>-->
+<meta http-equiv="Cache-Control" content="no-store" />
+<form name="machineparkReleaseForm" class="form-horizontal" role="form" ng-submit="Save()">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="Close()"></button>
+        <h3 class="modal-title">{{Data.Title}}</h3>
+    </div>
+    <div class="modal-body">
+        <div>{{Data.Message}}</div>
+        <div class="form-group">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <br>
+                <pre>{{Data}}</pre>
+                <label><b>Marka</b></label>
+                <div>
+                    <div search-select ng-model="Data.MpMark" options="MpMark_SelectOptions" ng-sync-value="Data.MarkId"></div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <label><b>Model</b></label>
+                <div>
+                    <div search-select ng-model="Data.MpModel" options="MpModel_SelectOptions" ng-sync-value="Data.ModelId"></div>
+                </div>
+            </div>
+
+
+
+            <!--<label class="control-label bold">Elden Çıkarma Tarihi</label>
+            <input type="text" date-picker options="{}" class="form-control" name="releaseDate" placeholder="Tarih giriniz" size="16" ng-model="Data.ReleaseDate" ng-required="true" />
+            <div validation-message="machineparkReleaseForm.releaseDate">
+                <required></required>
+                <date></date>
+            </div>-->
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" ng-click="Close()" class="btn btn-outline dark">Kapat</button>
+        <button type="submit" class="btn green" ng-disabled="machineparkReleaseForm.$invalid">Kaydet</button>
+    </div>
+</form>
